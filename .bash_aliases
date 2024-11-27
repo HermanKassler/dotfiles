@@ -1,5 +1,6 @@
 alias dotcam='git -C ~/dotfiles commit -a -m '
 alias dotp='git -C ~/dotfiles push'
+alias cddot='cd ~/dotfiles'
 alias cdkth='cd ~/Documents/kth'
 alias gits='git status'
 alias gitcam='git commit -a -m '
