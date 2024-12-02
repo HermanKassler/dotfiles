@@ -10,4 +10,6 @@ echo "installing eza..."
 sudo apt install eza
 
 
+echo "installing tmux..."
+sudo apt install tmux
 
