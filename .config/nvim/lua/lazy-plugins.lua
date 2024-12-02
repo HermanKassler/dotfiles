@@ -44,6 +44,7 @@ require('lazy').setup({
       },
     },
   },
+
   { 'Bilal2453/luvit-meta', lazy = true },
 
   { -- Autoformat
@@ -90,8 +91,8 @@ require('lazy').setup({
         css = { 'prettier' },
         markdown = { 'prettier' },
         -- java = { 'clang-format' },
-        -- c = { 'clang-format' },
         cpp = { 'custom_clang' },
+        cuda = { 'custom_clang' },
         cs = { 'custom_clang' },
         java = { 'google_java_format' },
         --
@@ -101,7 +102,7 @@ require('lazy').setup({
       formatters = {
         custom_clang = {
           command = 'clang-format',
-          args = '--style="{BasedOnStyle: llvm, IndentWidth: 4}"',
+          args = '--style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 100}"',
         },
         custom_google = {
           command = 'google-java-format',
