@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', 'ö', ':', { desc = 'Open command' })
+vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
 vim.keymap.set({ 'n', 'i' }, '<M-j>', '<cmd>m +1<CR>')
 vim.keymap.set({ 'n', 'i' }, '<M-Down>', '<cmd>m +1<CR>')
 vim.keymap.set({ 'n', 'i' }, '<M-k>', '<cmd>m -2<CR>')
