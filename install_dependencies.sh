@@ -13,3 +13,9 @@ sudo apt install eza
 echo "installing tmux..."
 sudo apt install tmux
 
+echo "installing i3..."
+sudo apt install i3
+sudo apt install rofi
+sudo apt install flameshot
+
+
