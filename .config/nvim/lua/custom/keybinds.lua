@@ -14,6 +14,7 @@ vim.keymap.set('n', '<TAB>j', '<cmd>bp<CR>')
 vim.keymap.set('n', '<TAB>k', '<cmd>bn<CR>')
 vim.keymap.set('n', 'L', '$')
 vim.keymap.set('n', 'H', '_')
+vim.keymap.set('n', '<leader>,', 'A;<Esc>')
 vim.keymap.set('n', '<leader>tr', '<C-w>v<cmd>term<CR>', { desc = 'Pause Neovim (open terminal)' })
 
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
