@@ -6,6 +6,9 @@ sudo apt install bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
+echo "installing fdfind..."
+sudo apt install fd-find
+
 echo "installing eza..."
 sudo apt install eza
 
