@@ -3,10 +3,18 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
-vim.keymap.set({ 'n', 'i' }, '<M-j>', '<cmd>m +1<CR>')
-vim.keymap.set({ 'n', 'i' }, '<M-Down>', '<cmd>m +1<CR>')
+-- move line upp
 vim.keymap.set({ 'n', 'i' }, '<M-k>', '<cmd>m -2<CR>')
 vim.keymap.set({ 'n', 'i' }, '<M-Up>', '<cmd>m -2<CR>')
+vim.keymap.set({ 'x', 'v' }, '<M-Up>', '<cmd>m -2<CR>gv')
+vim.keymap.set({ 'x', 'v' }, '<M-k>', '<cmd>m -2<CR>gv')
+
+-- move line down
+vim.keymap.set({ 'n', 'i' }, '<M-j>', '<cmd>m +<CR>')
+vim.keymap.set({ 'n', 'i' }, '<M-Down>', '<cmd>m +<CR>')
+vim.keymap.set({ 'v', 'x' }, '<M-j>', "<cmd>m'>+<CR>gv")
+vim.keymap.set({ 'v', 'x' }, '<M-Down>', "<cmd>m'>+<CR>gv")
+
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser <CR>')
 
@@ -18,12 +26,13 @@ vim.keymap.set('n', '<leader>,', 'A;<Esc>')
 vim.keymap.set('n', '<leader>tr', '<C-w>v<cmd>term<CR>', { desc = 'Pause Neovim (open terminal)' })
 
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
-vim.keymap.set('n', '<C-D>', '<C-D>zz')
 
+vim.keymap.set('n', '<C-D>', '<C-D>zz')
 vim.keymap.set('n', '[c', function()
   require('treesitter-context').go_to_context(vim.v.count1)
-end, { silent = true })
+end, { silent = true, desc = 'Go to context' })
 
+vim.keymap.set('n', '<leader>p', '"0p', { desc = 'Paste without replacing buffer' })
 -- -----------Kickstart Default Binds----------------
 --  See `:help vim.keymap.set()`
 -- Keybinds to make split navigation easier.
@@ -45,6 +54,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
 --
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
