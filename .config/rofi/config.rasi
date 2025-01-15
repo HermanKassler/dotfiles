@@ -179,4 +179,4 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }
-@theme "launchers/type-2/style-2"
+@theme "launchers/type-1/style-5"
