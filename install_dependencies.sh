@@ -1,3 +1,6 @@
+echoe "Installing nvim..."
+sudo apt install neovim
+
 echo "Installing fzf..."
 sudo apt install fzf
 
@@ -21,7 +24,5 @@ sudo apt install i3
 sudo apt install rofi
 sudo apt install flameshot
 sudo apt install polybar
-
-
 sudo apt install brightnessctl
 #usermod -a -G video ${USER}

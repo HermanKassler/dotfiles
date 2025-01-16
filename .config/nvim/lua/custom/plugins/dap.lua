@@ -6,6 +6,7 @@ return {
       'theHamsta/nvim-dap-virtual-text',
       'nvim-neotest/nvim-nio',
       'williamboman/mason.nvim',
+      'jay-babu/mason-nvim-dap.nvim',
     },
     config = function()
       local dap = require 'dap'
@@ -15,6 +16,7 @@ return {
 
       require('nvim-dap-virtual-text').setup()
 
+      vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
       vim.keymap.set('n', '<space>b', dap.toggle_breakpoint)
       vim.keymap.set('n', '<space>gb', dap.run_to_cursor)
 
