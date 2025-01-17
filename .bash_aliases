@@ -1,3 +1,5 @@
+alias pbcopy='xclip -selection clipboard'
+alias dircp='pwd | pbcopy'
 alias dotcam='git -C ~/dotfiles commit -a -m '
 alias dotp='git -C ~/dotfiles push'
 alias cddot='cd ~/dotfiles'
@@ -7,6 +9,7 @@ alias cdconfig='cd ~/.config/nvim'
 alias gits='git status'
 alias gitA='git add -A'
 alias gitp='git push'
+alias gitc='git commit'
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 alias hist='$(bat ~/.bash_history | fzf)'
 alias dvim='nvim .'
@@ -25,7 +28,7 @@ function fd() {
 
 function fdd() {
     local dirname
-    dirname=$(fdfind . ./ -t d -H| fzf --previw "$show_file_or_dir_preview") || return
+    dirname=$(fdfind . ./ -t d -H| fzf --preview "$show_file_or_dir_preview") || return
     cd "$dirname"
 }
 
