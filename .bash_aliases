@@ -17,6 +17,7 @@ alias cdconfig='cd ~/.config/nvim'
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
+#------------------OTHER------------------
 alias pbcopy='xclip -selection clipboard'
 alias dircp='pwd | pbcopy'
 alias cddot='cd ~/dotfiles'
@@ -27,7 +28,6 @@ alias ta='tmux attach'
 alias td='tmux detach'
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --color=always {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
-
 function fd() {
     local dirname
     dirname=$(fdfind . ~/ -t d -H| fzf --preview "$show_file_or_dir_preview" ) || return
