@@ -34,6 +34,7 @@ echo "installing waybar..."
 sudo pacman -S hyprpaper
 sudo pacman -S hyprlock
 sudo pacman -S waybar
+sudo pacman -S swaync
 
 
 echo "installing nemo..."
