@@ -1,3 +1,4 @@
+
 echo "Installing nvim..."
 sudo pacman -S neovim
 
@@ -24,6 +25,9 @@ sudo pacman -S neofetch
 
 echo "installing btop..."
 sudo pacman -S btop
+echo "--------------APPLICATIONS---------------"
+sudo pacman -S discord
+sudo pacman -S spotify-launcher
 
 echo "-------------HYPERLAND---------------"
 echo "installing waybar..."

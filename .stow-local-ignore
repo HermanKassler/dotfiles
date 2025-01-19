@@ -23,3 +23,5 @@ _darcs
 ^/COPYING
 
 install_dependencies.sh
+arch_install_dependencies.sh
+ubuntu_install_dependencies.sh
