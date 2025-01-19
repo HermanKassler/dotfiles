@@ -1,6 +1,9 @@
 echo "Installing nvim..."
 sudo pacman -S neovim
 
+echo "installing ssh..."
+sudo pacman -S openssh
+
 echo "Installing fzf..."
 sudo pacman -S fzf
 
@@ -16,8 +19,13 @@ sudo ln -s /bin/fd /bin/fdfind
 echo "installing eza..."
 sudo pacman -S eza
 
+echo "installing neofetch..."
+sudo pacman -S neofetch
 
-echo "HYPERLAND"
+echo "installing btop..."
+sudo pacman -S btop
+
+echo "-------------HYPERLAND---------------"
 echo "installing waybar..."
 sudo pacman -S hyprpaper
 sudo pacman -S hyprlock
@@ -27,5 +35,3 @@ sudo pacman -S waybar
 echo "installing nemo..."
 sudo pacman -S nemo
 
-echo "installing ssh..."
-sudo pacman -S openssh
