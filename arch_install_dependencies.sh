@@ -2,6 +2,12 @@
 echo "Installing nvim..."
 sudo pacman -S neovim
 
+echo "Installing yay..."
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
+cd ~/Downloads/yay
+makepkg -si
+
 echo "installing ssh..."
 sudo pacman -S openssh
 
