@@ -41,6 +41,8 @@ sudo pacman -S hyprpaper
 sudo pacman -S hyprlock
 sudo pacman -S waybar
 sudo pacman -S swaync
+yay -S hyprshot
+sudo pacman -S hyprpicker
 
 
 echo "installing nemo..."

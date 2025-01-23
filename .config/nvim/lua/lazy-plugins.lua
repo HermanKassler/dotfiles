@@ -84,7 +84,7 @@ require('lazy').setup({
         c = { 'custom_clang' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
-        javascript = { 'prettier' },
+        javascript = { 'custom_prettier' },
         html = { 'prettier' },
         json = { 'prettier' },
         typescript = { 'prettier' },
@@ -107,6 +107,10 @@ require('lazy').setup({
         custom_google = {
           command = 'google-java-format',
           args = 'aosp = true',
+        },
+        custom_prettier = {
+          command = 'pretier',
+          args = 'prettier.tabWidth: 4',
         },
       },
     },
