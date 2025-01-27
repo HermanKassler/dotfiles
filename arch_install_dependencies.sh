@@ -31,6 +31,10 @@ sudo pacman -S neofetch
 
 echo "installing btop..."
 sudo pacman -S btop
+
+echo "installing nemo..."
+sudo pacman -S nemo
+
 echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher
@@ -43,8 +47,10 @@ sudo pacman -S waybar
 sudo pacman -S swaync
 yay -S hyprshot
 sudo pacman -S hyprpicker
+pacman -S xdg-desktop-portal-hyprland
+sudo pacman -S hyprpolkitagent
+sudo pacman -S qt6-wayland
+sudo pacman -S qt5-wayland
 
 
-echo "installing nemo..."
-sudo pacman -S nemo
 
