@@ -23,6 +23,8 @@ return {
           FloatBorder = { fg = colors.light0, bg = colors.dark0 },
           SignColumn = { bg = colors.dark0 },
           CursorLineNr = { bg = colors.dark0 },
+          FoldColumn = { bg = colors.dark0 },
+          GruvboxYellowSign = { bg = colors.dark0 },
         },
       }
       vim.cmd.colorscheme 'gruvbox'
