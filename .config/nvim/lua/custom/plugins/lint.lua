@@ -10,7 +10,7 @@ return {
         -- java = { 'checkstyle' },
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
-        python = { 'pylint' },
+        python = { 'flake8' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

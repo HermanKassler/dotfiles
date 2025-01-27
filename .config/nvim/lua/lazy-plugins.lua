@@ -83,7 +83,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         c = { 'custom_clang' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'black' },
+        python = { 'autoflake' },
         javascript = { 'custom_prettier' },
         html = { 'prettier' },
         json = { 'prettier' },
@@ -109,7 +109,7 @@ require('lazy').setup({
           args = 'aosp = true',
         },
         custom_prettier = {
-          command = 'pretier',
+          command = 'prettier',
           args = 'prettier.tabWidth: 4',
         },
       },

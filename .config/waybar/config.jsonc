@@ -39,6 +39,7 @@
     "clock#time",
     "custom/paddc",
     "custom/notification",
+    "custom/paddc",
   ],
 
   "custom/rofi": {
