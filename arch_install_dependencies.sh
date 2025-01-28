@@ -43,6 +43,8 @@ echo "-------------HYPERLAND---------------"
 echo "installing waybar..."
 sudo pacman -S hyprpaper
 sudo pacman -S hyprlock
+sudo pacman -S hyprlock
+sudo pacman -S hypridle
 sudo pacman -S waybar
 sudo pacman -S swaync
 yay -S hyprshot
