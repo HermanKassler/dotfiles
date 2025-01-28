@@ -109,7 +109,7 @@
     "states": {
       "good": 99,
       "warning": 30,
-      "critical": 20
+      "critical": 15
     },
     "format-icons": [" "," "," "," "," "],
     "format": "<span color='#8ec07c' > {icon}</span>{capacity}%",
