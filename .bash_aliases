@@ -20,6 +20,7 @@ alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 
 #------------------OTHER------------------
 alias pbcopy='xclip -selection clipboard'
+alias neofetch='fastfetch'
 alias dircp='pwd | pbcopy'
 alias cddot='cd ~/dotfiles'
 alias ..='cd ..'
