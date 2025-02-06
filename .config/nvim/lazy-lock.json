@@ -60,5 +60,6 @@
   "treewalker.nvim": { "branch": "main", "commit": "222914228b1bf5e0133bb18dfce663acc948fed3" },
   "undotree": { "branch": "main", "commit": "eab459ab87dd249617b5f7187bb69e614a083047" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
+  "vimtex": { "branch": "master", "commit": "3a9f47ce6e42c4a3c9a92a254f1f611a8d374fc9" },
   "which-key.nvim": { "branch": "main", "commit": "9b365a6428a9633e3eeb34dbef1b791511c54f70" }
 }

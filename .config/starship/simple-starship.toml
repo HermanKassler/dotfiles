@@ -149,7 +149,7 @@ disabled = false
 symbol = ""
 style = "bg:color_bg0 fg:color_fg1"
 # format = '[[ $symbol ](fg:color_fg1 bg:color_bg0)$virtualenv]($style)'
-format = '[$virtualenv]($style)'
+format = '[ $virtualenv]($style)'
 
 [docker_context]
 disabled = true

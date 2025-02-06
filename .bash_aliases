@@ -18,16 +18,22 @@ alias cdconfig='cd ~/.config/nvim'
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
-#------------------OTHER------------------
-alias pbcopy='xclip -selection clipboard'
+#-----------------CLIs/Related------------
 alias neofetch='fastfetch'
-alias dircp='pwd | pbcopy'
-alias cddot='cd ~/dotfiles'
-alias ..='cd ..'
-alias cdkth='cd ~/Documents/kth'
-alias hist='$(bat ~/.bash_history | fzf)'
+alias pbcopy='xclip -selection clipboard'
 alias ta='tmux attach'
 alias td='tmux detach'
+alias dircp='pwd | pbcopy'
+alias hist='$(bat ~/.bash_history | fzf)'
+
+function zopen(){
+    zathura $1 &
+}
+
+#------------------Movement------------------
+alias cdkth='cd ~/Documents/kth'
+alias cddot='cd ~/dotfiles'
+alias ..='cd ..'
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --color=always {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
 function fd() {
