@@ -1,0 +1,266 @@
+@import "gruvbox.css";
+/* ================================ */
+/*            Common CSS            */
+/* ================================ */
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  padding: 0;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  border: none;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
+}
+
+/* the whole window */
+window#waybar {
+  background: @bg1;
+  /*background-color: rgba(0, 0, 0, 0);*/
+  color: @fg;
+  padding: 0px 5px;
+  margin: 0;
+  border-radius: 15px;
+  /*transition-property: background-color;*/
+}
+
+.modules-left {
+  padding-left: 5px;
+}
+
+.modules-right {
+  padding-right: 5px;
+}
+
+#custom-rofi,
+#workspaces button,
+#workspaces button:hover,
+#workspaces button.visible,
+#workspaces button.visible:hover,
+#workspaces button.active,
+#workspaces button.active:hover,
+#workspaces button.urgent,
+#window,
+#tray,
+#disk,
+#cpu,
+#temperature,
+#temperature.critical,
+#backlight,
+#custom-memory,
+#pulseaudio,
+#pulseaudio.muted,
+#battery,
+#battery.critical,
+#battery.warning,
+#clock {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 14px;
+  font-weight: 400;
+  color: #202020;
+  background: #202020;
+  border-radius: 2px;
+}
+
+#window,
+#tray,
+#disk,
+#cpu,
+#temperature,
+#temperature.critical,
+#backlight,
+#custom-memory,
+#pulseaudio,
+#pulseaudio.muted,
+#battery,
+#battery.critical,
+#battery.warning,
+#clock {
+  padding-right: 0px;
+  margin: 5px 0px;
+}
+
+#custom-rofi {
+  /* border: 2px solid #458588; */
+  /* border-radius: 5px; */
+  background: @bg1;
+  padding: 0 6px;
+  margin: 5px 0px;
+}
+
+/* ================================ */
+/*       workspaces module          */
+/* ================================ */
+#workspaces {
+  margin: 0px;
+}
+
+#workspaces button {
+  color: @fg;
+  background: @bg1;
+  border: 3px solid @bg1;
+  min-width: 25px;
+  padding: 0 4px;
+  margin: 5px 3px;
+}
+
+#workspaces button:hover {
+  background: @bg1;
+  border: 3px solid @green-dim;
+  border-radius: 12px;
+}
+
+#workspaces button.visible {
+  border: 3px solid @aqua-dim;
+  border-radius: 12px;
+  background: @bg1;
+}
+
+#workspaces button.visible:hover {
+  border: 3px solid @blue;
+  border-radius: 12px;
+  background: @bg1;
+}
+
+#workspaces button.active {
+  border: 3px solid @blue;
+  border-radius: 12px;
+  background: @bg1;
+}
+
+#workspaces button.active:hover {
+  border: 3px solid @blue;
+  border-radius: 12px;
+  background: @bg1;
+}
+
+#workspaces button.urgent {
+  border: 3px solid @red-dim;
+  border-radius: 12px;
+  background: @red;
+}
+
+/* ================================ */
+/*            window                 */
+/* ================================ */
+
+#window {
+  color: @gray-dim;
+  background: @bg1;
+  /* border: 2px solid #d3869b; */
+}
+
+/* ================================ */
+/*            tray                 */
+/* ================================ */
+
+#tray {
+  /* padding: 0 6px; */
+  background: @bg1;
+}
+
+/* ================================ */
+/*            disk                 */
+/* ================================ */
+
+#disk {
+  color: @red;
+  border: 2px solid @red;
+}
+
+/* ================================ */
+/*            cpu                  */
+/* ================================ */
+#cpu {
+  color: @orange;
+  border: 2px solid @orange;
+}
+
+/* ================================ */
+/*            temp                  */
+/* ================================ */
+#temperature {
+  color: #d8a657;
+  border: 2px solid #d8a657;
+}
+
+#temperature.critical {
+  color: @red-dim;
+  border: 2px solid @red-dim;
+}
+
+/* ================================ */
+/*            backlight             */
+/* ================================ */
+#custom-backlight {
+  color: #f6c657;
+  background: @bg1;
+}
+
+/* ================================ */
+/*            memory                */
+/* ================================ */
+#custom-memory {
+  color: #458588;
+  border: 2px solid #458588;
+}
+
+/* ================================ */
+/*         pulseaudio               */
+/* ================================ */
+#pulseaudio {
+  color: @fg;
+  background: @bg1;
+}
+
+#pulseaudio.muted {
+  color: @red;
+  background: @bg1;
+}
+
+/* ================================ */
+/*            battery               */
+/* ================================ */
+#battery {
+  color: @fg;
+  background: @bg1;
+}
+
+#battery.critical {
+  color: @red-dim;
+  background: @bg1;
+}
+
+#battery.warning {
+  color: @orange;
+  background: @bg1;
+}
+/* ================================ */
+/*            clock                 */
+/* ================================ */
+#clock.time {
+  color: @fg;
+  background: @bg1;
+}
+
+#clock.date {
+  color: @fg;
+  background: @bg1;
+}
+
+#mpris {
+  color: @bg;
+  border: 2px solid @bg1;
+  border-radius: 21px;
+  background: @fg;
+  padding: 5px 5px;
+  margin: 1px 1px;
+}
+
+#custom-notification {
+  color: @fg;
+  font-size: 14px;
+  background: @bg1;
+  padding: 2px 2px;
+}

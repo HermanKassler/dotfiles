@@ -1,0 +1,11 @@
+@import "gruvbox.css";
+@define-color bar-bg rgba(0, 0, 0, 0);
+
+@define-color main-bg @bg1;
+@define-color main-fg @fg;
+
+@define-color wb-act-bg @aqua-dim;
+@define-color wb-act-fg @bg1;
+
+@define-color wb-hvr-bg @green-dim;
+@define-color wb-hvr-fg @fg;

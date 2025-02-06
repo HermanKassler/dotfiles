@@ -11,24 +11,17 @@
 configuration {
 	modi:                       "drun,filebrowser,window";
     show-icons:                 true;
-    display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
+    display-drun:               " ";
+    display-run:                " ";
+    display-filebrowser:        " ";
+    display-window:             " ";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
-* {
-    font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #231419;
-    background-alt:              #2D1E23;
-    foreground:                  #FFFFFF;
-    selected:                    #426647;
-    active:                      #2E3F34;
-    urgent:                      #D08261;
-}
+@import                          "shared/colors.rasi"
+@import                          "shared/fonts.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -40,6 +33,8 @@ window {
     width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
+    border-color: #595959AA;
+    border:                      2px solid;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -71,7 +66,7 @@ inputbar {
     spacing:                     10px;
     padding:                     80px 60px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/e.jpg", width);
+    background-image:            url("~/dotfiles/assets/wallpapers/clouds_lowres.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
@@ -79,7 +74,7 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "";
+    str:                         " ";
     padding:                     12px 15px;
     border-radius:               100%;
     background-color:            @background-alt;
@@ -118,7 +113,7 @@ button {
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @selected;
+    background-color:            @blue-dim;
     text-color:                  @foreground;
 }
 
@@ -165,7 +160,7 @@ element normal.active {
 }
 element selected.normal {
     background-color:            @selected;
-    text-color:                  @foreground;
+    text-color:                  @bg1;
 }
 element selected.urgent {
     background-color:            @urgent;

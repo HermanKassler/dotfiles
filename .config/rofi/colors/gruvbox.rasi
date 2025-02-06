@@ -8,9 +8,12 @@
 
 * {
     background:     #282828FF;
+    bg1: #3c3836FF;
     background-alt: #353535FF;
     foreground:     #EBDBB2FF;
     selected:       #83A598FF;
     active:         #B8BB26FF;
     urgent:         #FB4934FF;
+    blue: #83A499;
+    blue-dim: #458588FF;
 }
