@@ -19,19 +19,18 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-hibernate=''
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-logout=''
-yes=''
-no=''
-
+hibernate=''
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+logout=''
+yes=' '
+no='🗙'
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-p " $USER@$host" \
+		-p " $USER" \
 		-mesg " Last Login: $lastlogin |  Uptime: $uptime" \
 		-theme ${dir}/${theme}.rasi
 }
@@ -82,6 +81,8 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
+				hyprctl dispatch exit
 			fi
 		fi
 	else
@@ -106,6 +107,8 @@ case ${chosen} in
 			betterlockscreen -l
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
+		elif [[ -x '/usr/bin/hyprlock' ]]; then
+			hyprlock
 		fi
         ;;
     $suspend)
