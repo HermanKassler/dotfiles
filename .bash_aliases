@@ -14,6 +14,13 @@ alias v.='nvim .'
 alias dvim='nvim .'
 alias cdconfig='cd ~/.config/nvim'
 
+#------------------TMUX------------------
+alias tls='tmux ls'
+alias tas='tmux attach -t'
+alias ta='tmux attach'
+alias td='tmux detach'
+
+
 #------------------SSH------------------
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
@@ -21,8 +28,6 @@ alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 #-----------------CLIs/Related------------
 alias neofetch='fastfetch'
 alias pbcopy='xclip -selection clipboard'
-alias ta='tmux attach'
-alias td='tmux detach'
 alias dircp='pwd | pbcopy'
 alias hist='$(bat ~/.bash_history | fzf)'
 
@@ -48,11 +53,23 @@ function fdd() {
     cd "$dirname"
 }
 
+function fda() {
+    local dirname
+    dirname=$(fdfind . / -t d -H| fzf --preview "$show_file_or_dir_preview") || return
+    cd "$dirname"
+}
+
 alias fivm='fvim'
 alias fv='fvim'
 function fvim() {
     local dirname
     dirname=$(fdfind . ~/ -H| fzf --preview "$show_file_or_dir_preview" -m --preview-window '~3') || return
+    nvim "$dirname"
+}
+
+function fva() {
+    local dirname
+    dirname=$(fdfind . / -H| fzf --preview "$show_file_or_dir_preview" -m --preview-window '~3') || return
     nvim "$dirname"
 }
 
