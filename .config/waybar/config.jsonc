@@ -120,19 +120,19 @@
         "tooltip": true
     },
 
-	"wlr/taskbar": {
-		"format": "{icon}",
-		"rotate": 0,
-		"icon-size": 18,
-		"icon-theme": "Tela-circle-dracula",
-                "spacing": 0,
-		"tooltip-format": "{title}",
-		"on-click": "activate",
-		"on-click-middle": "close",
-		"app_ids-mapping": {
-			"firefoxdeveloperedition": "firefox-developer-edition"
-		}
-	},
+    "wlr/taskbar": {
+            "format": "{icon}",
+            "rotate": 0,
+            "icon-size": 18,
+            "icon-theme": "Tela-circle-dracula",
+            "spacing": 0,
+            "tooltip-format": "{title}",
+            "on-click": "activate",
+            "on-click-middle": "close",
+            "app_ids-mapping": {
+                    "firefoxdeveloperedition": "firefox-developer-edition"
+            }
+    },
 
     "custom/spotify": {
         "exec": "mediaplayer.py --player spotify",
@@ -149,10 +149,10 @@
         "tooltip": true
     },
 
-  "mpris": {
-    "format": "<span color='#cc241d'> 󰎇  </span> {title} - {artist}  ",
-    "max-length": 40,
-  },
+    "mpris": {
+        "format": "<span color='#cc241d'> 󰎇  </span> {title} - {artist}  ",
+        "max-length": 40,
+    },
 
     "idle_inhibitor": {
         "format": "{icon}",
@@ -195,6 +195,7 @@
     },
 
     "battery": {
+        "interval": 5,
         "states": {
             "good": 100,
             "warning": 30,

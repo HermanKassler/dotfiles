@@ -7,6 +7,18 @@
   min-height: 10px;
 }
 
+@keyframes animate-grow {
+  0% {
+    opacity: 0;
+    /*transform: scale(1, 0);*/
+    /*visibility: hidden;*/
+  }
+  100% {
+    opacity: 1;
+    /*transform: scale(1, 1);*/
+  }
+}
+
 @import "theme.css";
 @import "gruvbox.css";
 window#waybar {
@@ -29,7 +41,7 @@ tooltip {
   margin-bottom: 3px;
   margin-left: 3px;
   padding-left: 5px;
-  padding-right: 8px;
+  padding-right: 9px;
   margin-right: 3px;
   color: @main-fg;
   animation: ws_normal 2s ease-in-out 1;
@@ -41,8 +53,8 @@ tooltip {
   padding-left: 12px;
   padding-right: 15px;
   margin-right: 3px;
-  animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /*animation: ws_hover 20s easen-out 1;*/
+  transition: all 0.1s ease-out;
 }
 
 #workspaces button.active {
@@ -55,16 +67,23 @@ tooltip {
   padding-left: 9px;
   padding-right: 12px;
   margin-right: 3px;
-  animation: ws_active 20s ease-in-out 1;
-  transition: all 0.2s cubic-bezier(0.25, -0.38, 0.48, 4);
+  /*animation: ws_active 20s ease-in-out 1;*/
+  /*animation-name: animate-grow;*/
+  transition:
+  /*padding-right 1s ease-in;*/
+    padding-right 0.2s cubic-bezier(0.25, -0.38, 0.48, 4),
+    padding-left 0.2s cubic-bezier(0.25, -0.38, 0.48, 4);
+  /*padding-right 0.2s ease-out,*/
+  /*padding-left 0.2s ease-out;*/
 }
 
 #workspaces button:hover {
   background: @wb-hvr-bg;
   color: @wb-hvr-fg;
-  padding-right: 9px;
+  /*padding-right: 9px;*/
   animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /*transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);*/
+  transition: all 0.1s ease-out;
 }
 
 #workspaces button.urgent {
@@ -72,6 +91,7 @@ tooltip {
   /*border-radius: 12px;*/
   background: @red;
   color: @fg;
+  transition: all 0.1s ease-out;
 }
 
 #taskbar button {
@@ -147,7 +167,8 @@ tooltip {
   margin: 2px 2px;
   margin-top: 3px;
   margin-bottom: 3px;
-  /*transition: width 0.5s ease-in;*/
+  animation: animate-grow 1s linear;
+  transition: all 0.5s ease-in;
 }
 #battery,
 #backlight,
