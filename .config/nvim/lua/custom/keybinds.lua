@@ -3,17 +3,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
--- move line upp
-vim.keymap.set({ 'n', 'i' }, '<M-k>', '<cmd>m -2<CR>')
-vim.keymap.set({ 'n', 'i' }, '<M-Up>', '<cmd>m -2<CR>')
-vim.keymap.set({ 'x', 'v' }, '<M-Up>', '<cmd>m -2<CR>gv')
-vim.keymap.set({ 'x', 'v' }, '<M-k>', '<cmd>m -2<CR>gv')
-
--- move line down
-vim.keymap.set({ 'n', 'i' }, '<M-j>', '<cmd>m +<CR>')
-vim.keymap.set({ 'n', 'i' }, '<M-Down>', '<cmd>m +<CR>')
-vim.keymap.set({ 'v', 'x' }, '<M-j>', "<cmd>m'>+<CR>gv")
-vim.keymap.set({ 'v', 'x' }, '<M-Down>', "<cmd>m'>+<CR>gv")
 
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser <CR>')
