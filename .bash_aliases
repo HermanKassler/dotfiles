@@ -7,12 +7,14 @@ alias gitc='git commit'
 alias dotcam='git -C ~/dotfiles commit -a -m '
 alias dotp='git -C ~/dotfiles push'
 alias gl='git log --graph --abbrev-commit --decorate --format=format:'\''%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'\'' --all'
+alias lg='lazygit'
 
 #------------------NVIM------------------
 alias v='nvim'
 alias v.='nvim .'
 alias dvim='nvim .'
 alias cdconfig='cd ~/.config/nvim'
+alias vdot='nvim ~/dotfiles/'
 
 #------------------TMUX------------------
 alias tls='tmux ls'

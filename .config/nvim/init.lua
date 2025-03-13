@@ -6,6 +6,7 @@
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+vim.loader.enable()
 require 'custom.keybinds'
 require 'custom.set'
 -- [[Install lazy.nvim]]

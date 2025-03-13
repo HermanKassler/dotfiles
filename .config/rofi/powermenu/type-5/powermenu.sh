@@ -19,11 +19,11 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-hibernate=''
+hibernate=''
 shutdown=''
 reboot=''
 lock=''
-suspend=''
+suspend=''
 logout=''
 yes=' '
 no='🗙'
