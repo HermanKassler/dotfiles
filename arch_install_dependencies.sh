@@ -1,4 +1,3 @@
-
 echo "Installing nvim..."
 sudo pacman -S neovim
 
@@ -68,6 +67,7 @@ pacman -S xdg-desktop-portal-hyprland
 sudo pacman -S hyprpolkitagent
 sudo pacman -S qt6-wayland
 sudo pacman -S qt5-wayland
+sudo pacman -S hyprpanel
 
 
 
