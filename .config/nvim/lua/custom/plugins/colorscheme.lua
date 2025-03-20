@@ -13,6 +13,8 @@ return {
       --harpoon
       vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = colors.dark_red, bg = colors.dark_red })
       vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = colors.dark0, bg = colors.dark0 })
+      --snacks
+      vim.api.nvim_set_hl(0, 'SnacksIndentScope', { link = 'GruvboxGray' })
 
       -- Load the colorscheme here.
       require('gruvbox').setup {

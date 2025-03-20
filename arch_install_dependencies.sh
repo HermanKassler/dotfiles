@@ -38,7 +38,6 @@ echo "installing atuin..."
 sudo pacman -S atuin
 echo "bind -x '\"\C-r\": __atuin_history'" >> ~/.bashrc
 
-
 echo "installing btop..."
 sudo pacman -S btop
 
@@ -48,6 +47,12 @@ sudo pacman -S nemo
 echo "installing zathura..."
 sudo pacman -S zathura
 
+echo "installing lazygit..."
+sudo pacman -S lazygit
+
+echo "installing yazi..."
+sudo pacman -S yazi
+
 echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher
@@ -56,7 +61,6 @@ sudo pacman -S spotify-launcher
 echo "-------------HYPERLAND---------------"
 echo "installing waybar..."
 sudo pacman -S hyprpaper
-sudo pacman -S hyprlock
 sudo pacman -S hyprlock
 sudo pacman -S hypridle
 sudo pacman -S waybar

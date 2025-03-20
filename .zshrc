@@ -1,7 +1,8 @@
-
+#!/bin/zsh
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 #
@@ -29,6 +30,7 @@ export ZVM_VI_SURROUND_BINDKEY=s-prefix
 
 zinit cdreplay -q
 
+# history
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -42,7 +44,7 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 alias ls='ls --color'
 
-# bindkey -e
+# keybinds
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey "^[[1;5C" forward-word # ctrl-right
@@ -56,18 +58,25 @@ zle -N backward-kill-dir
 bindkey "^[^?" backward-kill-dir # alt+backspace
 
 
+# starship 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval eval -- "$(/usr/bin/starship init zsh --print-full-init)"
+eval "$(/usr/bin/starship init zsh --print-full-init)"
 
+# fzf
 export FZF_CTRL_T_COMMAND="fdfind . ~/ -u"
 eval "$(fzf --zsh)"
 
 # atuin
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
-bindkey '^r' atuin-search
-# bind -x '"\C-r": __atuin_history'
+#
+# The plugin will auto execute this zvm_after_init function
+function zvm_after_init() {
+    bindkey '^r' atuin-search
+  # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 
+# tmux
 if [[ -z $TMUX ]]; then
     echo "Not in TMUX session, attaching"
     tmux attach
