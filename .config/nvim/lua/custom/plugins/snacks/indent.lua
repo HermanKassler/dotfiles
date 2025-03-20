@@ -2,9 +2,15 @@ return {
   'snacks.nvim',
   opts = {
     indent = {
-      enabled = true,
+      -- enabled = false,
       animate = {
         step = 15,
+      },
+      scope = {
+        underline = true,
+      },
+      chunk = {
+        -- enabled = true,
       },
     },
   },
