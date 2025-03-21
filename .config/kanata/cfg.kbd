@@ -1,0 +1,101 @@
+;; Swedish ISO105
+;;(deflocalkeys-win
+  ;;§   220
+  ;;+   187
+  ;;´   219
+  ;;å   221
+  ;;¨   186
+  ;;ö   192
+  ;;ä   222
+  ;;'   191
+  ;;<   226
+  ;;,   188
+  ;;.   190
+  ;;-   189
+;;)
+
+(deflocalkeys-linux
+  §   41
+  +   12
+  ´   13 ;; Acute accent. Opposite to the grave accent (grv).
+  å   26
+  ¨   27
+  ö   39
+  ä   40
+  '   43
+  <   86
+  ,   51
+  .   52
+  -   53
+)
+
+
+
+(defalias
+    holdnav (layer-while-held nav)
+    holdsym (layer-while-held symbols)
+    excl    S-1
+    quot    S-2
+    at      RA-2
+    hash    S-3
+    usd     RA-4
+    perc    S-5
+    great   <
+    less    S-<
+    pipe    RA-<
+    lpar    S-8
+    rpar    S-9
+    lbrack RA-8   
+    rbrack RA-9
+    lbrace  RA-7
+    rbrace  RA-0
+    equal   S-0
+    amp     S-6
+    undsc   S--
+    slsh    S-7
+    bslsh   RA-+
+    ques    S-+
+    tild    RA-¨
+    star    S-'
+    undr    S--
+)
+
+
+(defcfg
+    windows-altgr cancel-lctl-press
+)
+
+(defsrc ;; Swedish ISO105
+  §    1    2    3    4    5    6    7    8    9    0    +    ´    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    å    ¨
+  caps a    s    d    f    g    h    j    k    l    ö    ä    '    enter
+  lsft <    z    x    c    v    b    n    m    ,    .    -         rsft
+  lctl lmet lalt                spc                 ralt prtsc menu rctl
+)
+
+;; Empty layer that matches the Swedish layout
+(deflayer default
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  lctl _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _                   _                @holdsym @holdnav    _    _
+)
+
+(deflayer symbols
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @amp  @equal  @lbrack @rbrack @tild  _ _
+  _  @excl  @quot @hash @usd @perc   + @lbrace @lpar @rpar @rbrace @ques  @star _
+  _    _    @pipe @at    <   @less    _    -    @undr   @slsh   @bslsh    _         _
+  _    _    _                   _                   _    _    _    _
+)
+
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    7    8    9    _    _    _    up   _    _    _ _
+  _    0    4    5    6    _  home left down right end  _    _  _
+  _    _    _    1    2    3    _    _    _    _    _    _        _
+  _    _    _                   _                   _    _    _    _
+)
+
+
