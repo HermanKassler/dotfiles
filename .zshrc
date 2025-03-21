@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #!/bin/zsh
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -22,11 +29,13 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+zinit light romkatv/powerlevel10k
 
 # configuring plugins
 autoload -Uz compinit && compinit
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 export ZVM_VI_SURROUND_BINDKEY=s-prefix
+export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 zinit cdreplay -q
 
@@ -58,9 +67,9 @@ zle -N backward-kill-dir
 bindkey "^[^?" backward-kill-dir # alt+backspace
 
 
-# starship 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(/usr/bin/starship init zsh --print-full-init)"
+# # starship 
+# export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# eval "$(/usr/bin/starship init zsh --print-full-init)"
 
 # fzf
 export FZF_CTRL_T_COMMAND="fdfind . ~/ -u"
@@ -87,4 +96,5 @@ if [[ -z $TMUX ]]; then
 
 fi
 
-
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
