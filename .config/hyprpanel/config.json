@@ -12,7 +12,9 @@
   "theme.bar.buttons.windowtitle.enableBorder": false,
   "bar.layouts": {
     "0": {
-      "left": ["workspaces"],
+      "left": [
+        "workspaces"
+      ],
       "middle": [],
       "right": [
         "systray",
@@ -25,14 +27,34 @@
       ]
     },
     "1": {
-      "left": ["dashboard", "workspaces", "windowtitle"],
-      "middle": ["media"],
-      "right": ["volume", "clock", "notifications"]
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
     },
     "2": {
-      "left": ["dashboard", "workspaces", "windowtitle"],
-      "middle": ["media"],
-      "right": ["volume", "clock", "notifications"]
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
     }
   },
   "bar.clock.format": "%H:%M",
@@ -477,4 +499,3 @@
   "theme.notification.border_radius": "2em",
   "theme.bar.menus.menu.notifications.height": "70.15em"
 }
-
