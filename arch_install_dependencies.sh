@@ -53,6 +53,9 @@ sudo pacman -S lazygit
 echo "installing yazi..."
 sudo pacman -S yazi
 
+echo "installing croc..."
+sudo pacman -S croc
+
 echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher

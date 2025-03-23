@@ -28,6 +28,7 @@ alias td='tmux detach'
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
+
 #-----------------CLIs/Related------------
 alias neofetch='fastfetch'
 alias pbcopy='xclip -selection clipboard'
@@ -39,12 +40,20 @@ function zopen(){
     zathura $1 &
 }
 
+function crocloc(){
+    croc relay&
+    ip=$( hostname -i )
+    croc --relay "$ip:9009" send $1 || killall croc
+    killall croc
+}
+
 #------------------Movement------------------
 alias cdkth='cd ~/Documents/kth'
 alias cddot='cd ~/dotfiles'
 alias ..='cd ..'
 
-show_file_or_dir_preview="if [ -d {} ]; then eza --color=always {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
+show_file_or_dir_preview="if [ -d {} ]; then tree -L 2 -C --dirsfirst {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
+# show_file_or_dir_preview="if [ -d {} ]; then eza --color=always {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
 function fd() {
     local dirname
     dirname=$(fdfind . ~/ -t d -H| fzf --preview "$show_file_or_dir_preview" ) || return
