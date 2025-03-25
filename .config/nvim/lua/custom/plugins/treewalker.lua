@@ -1,6 +1,7 @@
 return {
   {
     'aaronik/treewalker.nvim',
+    event = 'VeryLazy',
 
     -- The following options are the defaults.
     -- Treewalker aims for sane defaults, so these are each individually optional,

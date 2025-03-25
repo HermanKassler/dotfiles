@@ -1,9 +1,11 @@
 return {
   {
     'karb94/neoscroll.nvim',
+    -- enabled = false,
     opts = {
       duration_multiplier = 1.0,
     },
+    event = 'VeryLazy',
     config = function()
       neoscroll = require 'neoscroll'
       neoscroll.setup {

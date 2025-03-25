@@ -1,3 +1,3 @@
 return {
-  { 'saecki/live-rename.nvim' },
+  { 'saecki/live-rename.nvim', event = 'VeryLazy' },
 }

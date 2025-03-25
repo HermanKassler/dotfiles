@@ -2,7 +2,7 @@ return {
   'snacks.nvim',
   opts = {
     indent = {
-      -- enabled = false,
+      enabled = false,
       animate = {
         step = 15,
       },

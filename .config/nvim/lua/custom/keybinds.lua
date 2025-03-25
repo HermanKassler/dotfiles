@@ -15,9 +15,10 @@ vim.keymap.set('n', '<leader>,', 'A;<Esc>')
 vim.keymap.set('n', '<leader>tr', '<C-w>v<cmd>term<CR>', { desc = 'Pause Neovim (open terminal)' })
 vim.keymap.set('n', '<leader>md', ':MarkdownPreview <CR>')
 
-vim.keymap.set('n', '<C-U>', '<C-U>zz')
-
-vim.keymap.set('n', '<C-D>', '<C-D>zz')
+-- require('snacks.toggle').option('wrap', { name = '󰖶 Wrap Long Lines' }):map '<leader>tw'
+-- vim.keymap.set('n', '<C-U>', '<C-U>zz')
+--
+-- vim.keymap.set('n', '<C-D>', '<C-D>zz')
 vim.keymap.set('n', '[c', function()
   require('treesitter-context').go_to_context(vim.v.count1)
 end, { silent = true, desc = 'Go to context' })

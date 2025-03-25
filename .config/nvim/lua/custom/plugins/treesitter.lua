@@ -4,7 +4,7 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    dependencies = { 'HiPhish/nvim-ts-rainbow2' },
+    -- dependencies = { 'HiPhish/nvim-ts-rainbow2' },
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'java' },
       -- Autoinstall languages that are not installed

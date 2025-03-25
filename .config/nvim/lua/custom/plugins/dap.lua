@@ -8,6 +8,7 @@ return {
       'williamboman/mason.nvim',
       'jay-babu/mason-nvim-dap.nvim',
     },
+    lazy = true,
     config = function()
       local dap = require 'dap'
       local ui = require 'dapui'
