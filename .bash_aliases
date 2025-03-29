@@ -40,7 +40,7 @@ function zopen(){
     zathura $1 &
 }
 
-function crocloc(){
+function lcroc(){
     croc relay&
     ip=$( hostname -i )
     croc --relay "$ip:9009" send $1 || killall croc
