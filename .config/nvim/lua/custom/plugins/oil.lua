@@ -4,7 +4,7 @@ return {
     ---@module 'oil'
     ---@type oil.SetupOpts
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    event = { 'VimEnter */*,.*', 'BufNew */*,.*' },
+    -- event = { 'VimEnter */*,.*', 'BufNew */*,.*' },
     -- opts = {
     -- columns = {
     --   'icon',

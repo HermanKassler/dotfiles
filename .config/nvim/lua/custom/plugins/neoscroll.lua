@@ -32,9 +32,10 @@ return {
         ['<C-y>'] = function()
           neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 })
         end,
-        ['<C-e>'] = function()
-          neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
-        end,
+        -- C-e conflicts with harpoon
+        -- ['<C-e>'] = function()
+        --   neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
+        -- end,
       }
       local modes = { 'n', 'v', 'x' }
       for key, func in pairs(keymap) do

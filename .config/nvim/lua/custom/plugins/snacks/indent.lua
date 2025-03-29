@@ -1,5 +1,6 @@
 return {
   'snacks.nvim',
+  event = 'VimEnter',
   opts = {
     indent = {
       enabled = false,

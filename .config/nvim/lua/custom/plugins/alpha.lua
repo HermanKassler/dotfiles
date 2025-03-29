@@ -43,11 +43,10 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button('n', '  New file', ':ene <BAR> startinsert <CR>'),
         dashboard.button('f', '  Find file', ':cd . | silent Telescope find_files hidden=true no_ignore=true <CR>'),
-        dashboard.button('e', '╘  Open filetree', ':e .<CR>'),
         dashboard.button('t', '  Find text', ':Telescope live_grep <CR>'),
-        dashboard.button('r', '󰄉  Recent files', ':Telescope oldfiles <CR>'),
         dashboard.button('u', '󱐥  Update plugins', '<cmd>Lazy update<CR>'),
         dashboard.button('c', '  Config', ':e $HOME/.config/nvim/init.lua<CR>'),
+        dashboard.button('l', '󰒲  Lazy ', ':Lazy<CR>'),
         dashboard.button('q', '󰿅  Quit', '<cmd>qa<CR>'),
       }
 
@@ -62,7 +61,7 @@ return {
         callback = function()
           local stats = require('lazy').stats()
           local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
-          dashboard.section.footer.val = { ' ', ' ', ' ', ' Loaded ' .. stats.count .. ' plugins  in ' .. ms .. ' ms ' }
+          dashboard.section.footer.val = { ' ', ' ', ' ', ' Loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins  in ' .. ms .. ' ms ' }
           dashboard.section.header.opts.hl = 'DashboardFooter'
           pcall(vim.cmd.AlphaRedraw)
         end,

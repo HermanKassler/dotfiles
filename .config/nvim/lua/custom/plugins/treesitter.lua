@@ -28,6 +28,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    event = 'VimEnter',
     opts = {
       multiline_threshold = 2,
       mode = 'topline',

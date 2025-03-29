@@ -2,6 +2,7 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   {
     'vhyrro/luarocks.nvim',
+    -- enabled = false,
     priority = 1000,
     config = true,
   },
