@@ -8,7 +8,7 @@ return {
       'williamboman/mason.nvim',
       'jay-babu/mason-nvim-dap.nvim',
     },
-    lazy = true,
+    event = 'VeryLazy',
     config = function()
       local dap = require 'dap'
       local ui = require 'dapui'
@@ -22,7 +22,7 @@ return {
       vim.keymap.set('n', '<space>gb', dap.run_to_cursor)
 
       -- Eval var under cursor
-      vim.keymap.set('n', '<space>?', function()
+      vim.keymap.set('n', '<space>d?', function()
         require('dapui').eval(nil, { enter = true })
       end)
 
@@ -50,6 +50,7 @@ return {
         command = 'gdb',
         args = { '--interpreter=dap', '--eval-command', 'set print pretty on' },
       }
+      require('dap-python').setup 'python3'
     end,
   },
 }
