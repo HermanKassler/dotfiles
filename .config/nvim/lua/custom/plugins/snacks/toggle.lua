@@ -1,6 +1,6 @@
 return {
   'snacks.nvim',
-  config = function()
+  config = function(_, opts)
     Snacks.toggle.option('spell', { name = '󰓆 Spell Checking' }):map '<leader>ts' -- '<leader>ts'
     Snacks.toggle.option('wrap', { name = '󰖶 Wrap Long Lines' }):map '<leader>tw'
     Snacks.toggle.option('list', { name = '󱁐 List (Visible Whitespace)' }):map '<leader>tl'
@@ -69,6 +69,7 @@ return {
         end,
       })
       :map '<leader>tF'
+    require('snacks').setup(opts)
   end,
 
   -- require('snacks.toggle').option('spell', { name = '󰓆 Spell Checking' }):map '<leader>ts' -- '<leader>ts'

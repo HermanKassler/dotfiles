@@ -3,21 +3,22 @@ return {
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
+    enabled = true,
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
       -- OPTIONAL:
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
-      'rcarriga/nvim-notify',
+      -- 'rcarriga/nvim-notify',
     },
     opts = {
       -- add any options here
     },
     config = function()
-      vim.keymap.set('n', '<leader>x', function()
-        require('notify').dismiss { silent = true, pending = false }
-      end, { desc = 'Dismiss notifications' })
+      -- vim.keymap.set('n', '<leader>x', function()
+      --   require('notify').dismiss { silent = true, pending = false }
+      -- end, { desc = 'Dismiss notifications' })
 
       require('noice').setup {
         lsp = {
@@ -36,20 +37,19 @@ return {
           lsp_doc_border = false, -- add a border to hover docs and signature help
         },
         cmdline = {
-
           format = {
             cmdline = { pattern = '^:', icon = ':', lang = 'vim' },
           },
         },
         messages = {
-          -- enabled = false,
+          enabled = true,
         },
         notify = {
-          -- enabled = false,
+          enabled = false,
         },
         routes = {
           {
-            view = 'notify',
+            -- view = 'snacks',
             filter = { event = 'msg_showmode' },
           },
         },
