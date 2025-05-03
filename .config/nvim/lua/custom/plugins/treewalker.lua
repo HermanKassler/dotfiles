@@ -19,16 +19,16 @@ return {
     },
     config = function()
       -- movement
-      vim.keymap.set('n', '<M-S-k>', '<cmd>Treewalker Up<cr>', { silent = true })
-      vim.keymap.set('n', '<M-S-j>', '<cmd>Treewalker Down<cr>', { silent = true })
-      vim.keymap.set('n', '<M-S-h>', '<cmd>Treewalker Left<cr>', { silent = true })
-      vim.keymap.set('n', '<M-S-l>', '<cmd>Treewalker Right<cr>', { silent = true })
+      vim.keymap.set('n', '<S-M-k>', '<cmd>Treewalker Up<cr>', { silent = true })
+      vim.keymap.set('n', '<S-M-h>', '<cmd>Treewalker Left<cr>', { silent = true })
+      vim.keymap.set('n', '<S-M-j>', '<cmd>Treewalker Down<cr>', { silent = true })
+      vim.keymap.set('n', '<S-M-l>', '<cmd>Treewalker Right<cr>', { silent = true })
       --
       -- swapping
-      vim.keymap.set({ 'n', 'v' }, '<leader>k', '<cmd>Treewalker SwapUp<cr>', { silent = true })
-      vim.keymap.set({ 'n', 'v' }, '<leader>j', '<cmd>Treewalker SwapDown<cr>', { silent = true })
-      vim.keymap.set({ 'n', 'v' }, '<leader>h', '<cmd>Treewalker SwapLeft<cr>', { silent = true })
-      vim.keymap.set({ 'n', 'v' }, '<leader>l', '<cmd>Treewalker SwapRight<cr>', { silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<M-C-k>', '<cmd>Treewalker SwapUp<cr>', { silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<M-C-j>', '<cmd>Treewalker SwapDown<cr>', { silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<M-C-h>', '<cmd>Treewalker SwapLeft<cr>', { silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<M-C-l>', '<cmd>Treewalker SwapRight<cr>', { silent = true })
     end,
   },
 }
