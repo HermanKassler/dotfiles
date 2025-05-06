@@ -34,6 +34,8 @@ adjust-cursor-thickness = 1
 shell-integration = zsh
 resize-overlay=never
 confirm-close-surface=false
+mouse-scroll-multiplier = 0.3
+gtk-single-instance = true
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
 # key=value

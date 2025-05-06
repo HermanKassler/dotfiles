@@ -67,6 +67,8 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey "^[[1;5C" forward-word # ctrl-right
 bindkey "^[[1;5D" backward-word # ctrl left
+bindkey '\e[1~'   beginning-of-line  # Linux console
+bindkey '\e[4~'   end-of-line        # Linux console
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
     zle backward-kill-word

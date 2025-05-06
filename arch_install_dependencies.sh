@@ -56,6 +56,12 @@ sudo pacman -S yazi
 echo "installing croc..."
 sudo pacman -S croc
 
+echo "installing qrcp..."
+sudo pacman -S qrcp
+
+echo "installing arch wiki"
+sudo pacman -S arch-wiki-docs
+
 echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher
