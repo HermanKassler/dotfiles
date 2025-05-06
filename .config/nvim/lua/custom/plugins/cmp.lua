@@ -71,6 +71,7 @@ return {
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
           ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<C-f>'] = cmp.mapping.confirm { select = true },
 
           -- Abort completion
           ['ESC'] = cmp.mapping.abort(),
