@@ -33,8 +33,16 @@ alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 alias neofetch='fastfetch'
 alias pbcopy='xclip -selection clipboard'
 alias dircp='pwd | pbcopy'
-alias hist='$(bat ~/.bash_history | fzf)'
 alias y='yazi'
+alias note='v /tmp/scratchpad'
+alias top='btop'
+
+function wiki(){
+    local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always -x echo | sed 's/\.[^.]*$//'| fzf)
+    local file=$(fdfind . /usr/share/doc/arch-wiki/html/en/ | rg -m 1 $pattern)
+    echo "Opening page for $pattern in browser"
+    firefox "$file"
+}
 
 function zopen(){
     zathura $1 &
@@ -86,6 +94,7 @@ function fva() {
     nvim "$dirname"
 }
 
+alias fvd='fvimd'
 function fvimd() {
     local dirname
     dirname=$(fdfind . ./ -H| fzf --preview  "$show_file_or_dir_preview" -m --preview-window '~3') || return
