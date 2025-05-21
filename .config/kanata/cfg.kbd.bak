@@ -1,7 +1,9 @@
-
+;; Swedish ISO105
 ;;(deflocalkeys-win
   ;;§   220
   ;;+   187
+  ;;´   219
+  ;;å   221
   ;;¨   186
   ;;ö   192
   ;;ä   222
@@ -28,24 +30,10 @@
 )
 
 
-(defvar 
-    tt 200
-    ht 200
-    )
 
 (defalias
     holdnav (layer-while-held nav)
     holdsym (layer-while-held symbols)
-    holdmod (tap-hold-release $tt $ht  § (layer-while-held nomods))
-    ctlesc (tap-hold-release $tt $ht esc lctl)
-    ds (tap-hold-release $tt $ht d lsft ) ;; tap d  ;; hold shift
-    ks (tap-hold-release $tt $ht k lsft );; tap k  ;; hold shift
-    fc (tap-hold-release $tt $ht f lctl ) 
-    jc (tap-hold-release $tt $ht j lctl ) 
-    sa (tap-hold-release $tt $ht s lalt )
-    la (tap-hold-release $tt $ht l lalt )
-    am (tap-hold-release $tt $ht a lmet )
-    öm (tap-hold-release $tt $ht ö lmet )
     excl    S-1
     quot    S-2
     at      RA-2
@@ -87,9 +75,9 @@
 
 ;; Empty layer that matches the Swedish layout
 (deflayer default
-  @holdmod    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  @ctlesc @am    @sa   @ds   @fc    _    _    @jc  @ks    @la    @öm    _    _    _
+  lctl _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _         _
   _    _    _                   _                @holdsym @holdnav    _    _
 )
@@ -110,11 +98,4 @@
   _    _    _                   _                   _    _    _    _
 )
 
-(deflayer nomods
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _   _    _    _ _
-  lctl    a    s    d    f    _  _ j k l ö  _    _  _
-  _    _    _    _    _    _    _    _    _    _    _    _        _
-  _    _    _                   _                   _    _    _    _
-)
 
