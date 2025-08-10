@@ -3,6 +3,7 @@ return {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
+    enabled = false,
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       {
@@ -86,13 +87,13 @@ return {
           --  Generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
           ['<C-Space>'] = cmp.mapping.complete {},
-
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
           --  function $name($args)
           --    $body
           --  end
           --
+
           -- <c-l> will move you to the right of each of the expansion locations.
           -- <c-h> is similar, except moving you backwards.
           ['<C-l>'] = cmp.mapping(function()
@@ -122,6 +123,7 @@ return {
         formatting = {
           format = lspkind.cmp_format(),
         },
+        fuzzy = { implementation = 'prefer_rust_with_warning' },
         window = {
           completion = {
             -- winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',

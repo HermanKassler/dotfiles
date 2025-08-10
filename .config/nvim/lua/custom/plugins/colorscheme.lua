@@ -37,14 +37,6 @@ return {
   },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, enabled = false },
   {
-    'Mofiqul/dracula.nvim',
-    enabled = false,
-  },
-  {
-    'loctvl842/monokai-pro.nvim',
-    enabled = false,
-  },
-  {
     'AlexvZyl/nordic.nvim',
     enabled = false,
   },

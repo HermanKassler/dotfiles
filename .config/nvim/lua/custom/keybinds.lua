@@ -23,7 +23,7 @@ vim.keymap.set('n', '[c', function()
   require('treesitter-context').go_to_context(vim.v.count1)
 end, { silent = true, desc = 'Go to context' })
 
-vim.keymap.set('n', '<leader>p', '"0p', { desc = 'Paste without replacing buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"0p', { desc = 'Paste without replacing buffer' })
 -- -----------Kickstart Default Binds----------------
 --  See `:help vim.keymap.set()`
 -- Keybinds to make split navigation easier.

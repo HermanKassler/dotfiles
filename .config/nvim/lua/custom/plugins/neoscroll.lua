@@ -7,7 +7,7 @@ return {
     },
     event = 'VeryLazy',
     config = function()
-      neoscroll = require 'neoscroll'
+      local neoscroll = require 'neoscroll'
       neoscroll.setup {
         -- Default easing function used in any animation where
         -- the `easing` argument has not been explicitly supplied
@@ -33,9 +33,9 @@ return {
           neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 })
         end,
         -- C-e conflicts with harpoon
-        -- ['<C-e>'] = function()
-        --   neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
-        -- end,
+        ['<C-e>'] = function()
+          neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
+        end,
       }
       local modes = { 'n', 'v', 'x' }
       for key, func in pairs(keymap) do

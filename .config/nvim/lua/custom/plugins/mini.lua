@@ -19,7 +19,14 @@ return {
       require('mini.surround').setup()
 
       require('mini.move').setup()
-
+      require('mini.align').setup {
+        modifiers = {
+          -- Use 'T' modifier to remove both whitespace and indent
+          T = function(steps, _)
+            table.insert(steps.pre_justify, require('mini.align').gen_step.trim('both', 'remove'))
+          end,
+        },
+      }
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin

@@ -48,7 +48,7 @@ return {
       local function map(lhs, rhs, opts)
         vim.keymap.set('n', lhs, rhs, opts or {})
       end
-      map('<C-e>', function()
+      map('<leader>e', function()
         harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
       end)
       map('<leader>a', function()
