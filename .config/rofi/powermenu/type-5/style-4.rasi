@@ -56,7 +56,7 @@ inputbar {
     enabled:                     true;
     spacing:                     0px;
     padding:                     150px 40px;
-    background-color:            transparent;
+    background-color:            @blue;
     background-image:            url("~/dotfiles/assets/wallpapers/clouds_lowres.png", width);
     children:                    [ "textbox-prompt-colon", "dummy","prompt"];
 }

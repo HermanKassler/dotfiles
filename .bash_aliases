@@ -36,12 +36,14 @@ alias dircp='pwd | pbcopy'
 alias y='yazi'
 alias note='v /tmp/scratchpad'
 alias top='btop'
+alias mntwin='sudo mount /dev/sda3 /mnt/windows'
+alias cdwin='cd /mnt/windows/Users/toreg/'
 
 function wiki(){
-    local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always -x echo | sed 's/\.[^.]*$//'| fzf)
+    local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always | sed 's/\.[^.]*$//'| fzf ) || return
     local file=$(fdfind . /usr/share/doc/arch-wiki/html/en/ | rg -m 1 $pattern)
     echo "Opening page for $pattern in browser"
-    firefox "$file"
+    zen-browser "$file"
 }
 
 function zopen(){

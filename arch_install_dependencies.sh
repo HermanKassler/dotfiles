@@ -23,10 +23,10 @@ echo "installing fdfind..."
 sudo pacman -S fd
 sudo ln -s /bin/fd /bin/fdfind
 
-echo "installing starship..."
-sudo pacman -S starship
-echo "eval \"$(starship init bash)\"" >> ~/.bashrc
-echo "export STARSHIP_CONFIG=~/.config/starship/starship.toml" >> ~/.bashrc
+# echo "installing starship..."
+# sudo pacman -S starship
+# echo "eval \"$(starship init bash)\"" >> ~/.bashrc
+# echo "export STARSHIP_CONFIG=~/.config/starship/starship.toml" >> ~/.bashrc
 
 echo "installing eza..."
 sudo pacman -S eza

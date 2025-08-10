@@ -29,23 +29,25 @@
 
 
 (defvar 
-    tt 200
-    ht 200
-    )
+    tt 220
+    ht 220
+)
+
 
 (defalias
     holdnav (layer-while-held nav)
     holdsym (layer-while-held symbols)
+    holdnum (layer-while-held num)
     holdmod (tap-hold-release $tt $ht  § (layer-while-held nomods))
     ctlesc (tap-hold-release $tt $ht esc lctl)
-    ds (tap-hold-release $tt $ht d lsft ) ;; tap d  ;; hold shift
-    ks (tap-hold-release $tt $ht k lsft );; tap k  ;; hold shift
-    fc (tap-hold-release $tt $ht f lctl ) 
-    jc (tap-hold-release $tt $ht j lctl ) 
-    sa (tap-hold-release $tt $ht s lalt )
-    la (tap-hold-release $tt $ht l lalt )
-    am (tap-hold-release $tt $ht a lmet )
-    öm (tap-hold-release $tt $ht ö lmet )
+    d (tap-hold-release $tt $ht d lsft ) ;; tap d  ;; hold shift
+    k (tap-hold-release $tt $ht k rsft );; tap k  ;; hold shift
+    f (tap-hold-release $tt $ht f lctl ) 
+    j (tap-hold-release $tt $ht j rctl ) 
+    s (tap-hold-release $tt $ht s lalt )
+    l (tap-hold-release $tt $ht l lalt )
+    a (tap-hold-release $tt $ht a lmet )
+    ö (tap-hold-release $tt $ht ö rmet )
     excl    S-1
     quot    S-2
     at      RA-2
@@ -72,6 +74,27 @@
     undr    S--
 )
 
+(defchords homechords 16
+    (s           )  @s
+    (  d         )  @d
+    (    f       )  @f
+    (      j     )  @j
+    (        k   )  @k
+    (          l )  @l
+    (s d         )  bspc
+    (        k l )  del
+    (      j k   )  enter
+)
+
+
+(defalias
+ chs (chord homechords s)
+    chd (chord homechords d)
+    chf (chord homechords f)
+    chj (chord homechords j)
+    chk (chord homechords k)
+    chl (chord homechords l)
+)
 
 (defcfg
     windows-altgr cancel-lctl-press
@@ -87,34 +110,50 @@
 
 ;; Empty layer that matches the Swedish layout
 (deflayer default
-  @holdmod    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  @ctlesc @am    @sa   @ds   @fc    _    _    @jc  @ks    @la    @öm    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _         _
-  _    _    _                   _                @holdsym @holdnav    _    _
+  @holdmod    _     _      _        _          _      _     _      _      _     _   _   _   _
+      _       _     _      _        _          _      _     _      _      _     _   _   _
+   @ctlesc   @a   @chs   @chd     @chf         _      _   @chj   @chk   @chl   @ö   _   _   _
+      _       _     _      _        _          _      _     _      _      _     _   _   _
+      _       _     @holdnum      _    @holdsym   @holdnav   _     _
 )
 
 (deflayer symbols
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    @amp  @equal  @lbrack @rbrack @tild  _ _
-  _  @excl  @quot @hash @usd @perc   + @lbrace @lpar @rpar @rbrace @ques  @star _
-  _    _    @pipe @at    <   @less    _    -    @undr   @slsh   @bslsh    _         _
-  _    _    _                   _                   _    _    _    _
+  _   _     _     _     _    _     _     _       _       _       _      _     _   _
+  _   _     _     _     _    _   @amp  @equal @lbrack @rbrack  @tild    _     _
+  _ @excl @quot @hash @usd @perc   +  @lbrace  @lpar   @rpar  @rbrace @ques @star _
+  _   _   @pipe  @at    <  @less   _     -     @undr   @slsh   @bslsh   _     _
+  _   _     _                      _                         _    _     _     _
+)
+
+(deflayer colemak
+    _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _     q     w     f     p     b     j     l     u     y     ö     å     _
+    _     a     r     s     t     g     m     n     e     i     o     ä     _     _
+    _     _     z     x     c     d     v     k     h     _     _     _     _
+      _       _     @holdnum      _    @holdsym   @holdnav   _     _
 )
 
 (deflayer nav
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    7    8    9    _    _    _    up   _    _    _ _
-  _    0    4    5    6    _  home left down right end  _    _  _
-  _    _    _    1    2    3    _    _    _    _    _    _        _
+    _     _     _     _     _     _       _        _        _        _        _      _     _     _
+    _     _     7     8     9     _       _        _       up        _        _      _     _
+    _     0     4     5     6     _     home     left     down     right     end     _     _     _
+    _     _     _     1     2     3       _        _        _        _        _      _     _
+  _    _    _                   _                   _    _    _    _
+)
+
+(deflayer num
+        _     _        _        _        _        _     _     _     _     _     _     _     _     _
+        _     _        7        8        9        _     _     7     8     9     _     _     _
+        _     lmet     lalt     lsft     lctl     _     _     4     5     6     0     _     _     _
+        _     _        _        1        2        3     _     _     1     2     3     _     _
   _    _    _                   _                   _    _    _    _
 )
 
 (deflayer nomods
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _   _    _    _ _
-  lctl    a    s    d    f    _  _ j k l ö  _    _  _
-  _    _    _    _    _    _    _    _    _    _    _    _        _
-  _    _    _                   _                   _    _    _    _
+      _      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _      _     _     _     _     _     _     _     _     _     _     _     _
+    lctl     a     s     d     f     _     _     j     k     l     ö     _     _     _
+      _      _     _     _     _     _     _     _     _     _     _     _     _
+      _      _     _                   _                   _    _    _    _
 )
 

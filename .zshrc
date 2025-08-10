@@ -77,11 +77,6 @@ backward-kill-dir () {
 zle -N backward-kill-dir
 bindkey "^[^?" backward-kill-dir # alt+backspace
 
-
-# # starship 
-# export STARSHIP_CONFIG=~/.config/starship/starship.toml
-# eval "$(/usr/bin/starship init zsh --print-full-init)"
-
 # fzf
 export FZF_CTRL_T_COMMAND="fdfind . ~/ -u"
 eval "$(fzf --zsh)"
