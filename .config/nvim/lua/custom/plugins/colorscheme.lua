@@ -36,12 +36,4 @@ return {
     opts = {},
   },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, enabled = false },
-  {
-    'AlexvZyl/nordic.nvim',
-    enabled = false,
-  },
-  {
-    'maxmx03/dracula.nvim',
-    enabled = false,
-  },
 }
