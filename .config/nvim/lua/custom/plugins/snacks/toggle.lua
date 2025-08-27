@@ -72,8 +72,6 @@ return {
     require('snacks').setup(opts)
   end,
 
-  -- require('snacks.toggle').option('spell', { name = '󰓆 Spell Checking' }):map '<leader>ts' -- '<leader>ts'
-  -- require('snacks.toggle').option('list', { name = '󱁐 List (Visible Whitespace)' }):map '<leader>tl'
   opts = {
     toggle = {
       -- which_key = false,

@@ -7,8 +7,6 @@ vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
 -- vim.keymap.set('n', '<leader>fb', ':Telescope file_browser <CR>')
 
-vim.keymap.set('n', '<TAB>j', '<cmd>bp<CR>')
-vim.keymap.set('n', '<TAB>k', '<cmd>bn<CR>')
 vim.keymap.set('n', 'L', '$')
 vim.keymap.set('n', 'H', '_')
 vim.keymap.set('n', '<leader>,', 'A;<Esc>')

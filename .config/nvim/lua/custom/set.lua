@@ -21,6 +21,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Open help pages in vertical mode
+vim.api.nvim_create_autocmd({ 'filetype' }, {
+  pattern = 'help',
+  callback = function()
+    vim.cmd.wincmd 'L'
+  end,
+})
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.

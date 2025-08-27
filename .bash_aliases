@@ -38,6 +38,8 @@ alias note='v /tmp/scratchpad'
 alias top='btop'
 alias mntwin='sudo mount /dev/sda3 /mnt/windows'
 alias cdwin='cd /mnt/windows/Users/toreg/'
+alias mtgn='cd /mnt/windows/Users/toreg/Pictures/Mottagningen\ 25/'
+alias notes='nvim ~/Documents/notes/home.md'
 
 function wiki(){
     local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always | sed 's/\.[^.]*$//'| fzf ) || return

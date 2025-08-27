@@ -2,6 +2,7 @@ return {
   {
     'jinh0/eyeliner.nvim',
     event = 'VeryLazy',
+    enabled = false,
     config = function()
       require('eyeliner').setup {
         -- show highlights only after keypress
