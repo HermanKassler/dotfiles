@@ -87,6 +87,12 @@ return {
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
 
+      cmdline = {
+        keymap = {
+          ['<Tab>'] = { 'show_and_insert', 'select_and_accept' },
+        },
+      },
+
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
@@ -106,6 +112,7 @@ return {
           show_with_menu = true,
         },
       },
+
       sources = {
         default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
