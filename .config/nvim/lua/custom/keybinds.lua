@@ -32,8 +32,22 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 --
 -- Clear highlights on search when pressing <Esc> in normal modf-  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<cr>', { desc = 'CD to directory of open file' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<cr>', { desc = '[C][D] to directory of open file' })
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>q', function()
+  local is_open = vim.iter(vim.fn.getwininfo()):any(function(wininf)
+    return wininf.quickfix == 1
+  end)
+  if is_open then
+    vim.cmd.cclose()
+  else
+    vim.cmd.copen()
+  end
+end, { desc = 'Toggle diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = 'Set [D]iagnostic [Q]uickfix list from buffer' })
 
 vim.keymap.set('n', '<leader>cm', function()
   vim.cmd.set 'langmap=qq,ww,fe,pr,bt,jy,lu,ui,yo,öp,åå,aa,rs,sd,tf,gg,mh,nj,ek,il,oö,ää,zz,xx,cc,dv,vb,kn,hm'
