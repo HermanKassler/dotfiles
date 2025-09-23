@@ -29,8 +29,8 @@
 
 
 (defvar 
-    tt 220
-    ht 220
+    tt 240
+    ht 240
 )
 
 
@@ -86,6 +86,8 @@
     (      j k   )  enter
 )
 
+(defalias qwty (layer-switch default))
+(defalias cole (layer-switch colemak))
 
 (defalias
  chs (chord homechords s)
@@ -99,6 +101,7 @@
 (defcfg
     windows-altgr cancel-lctl-press
 )
+
 
 (defsrc ;; Swedish ISO105
   §    1    2    3    4    5    6    7    8    9    0    +    ´    bspc
@@ -118,7 +121,7 @@
 )
 
 (deflayer symbols
-  _   _     _     _     _    _     _     _       _       _       _      _     _   _
+  @cole   _     _     _     _    _     _     _       _       _       _      _     _   _
   _   _     _     _     _    _   @amp  @equal @lbrack @rbrack  @tild    _     _
   _ @excl @quot @hash @usd @perc   +  @lbrace  @lpar   @rpar  @rbrace @ques @star _
   _   _   @pipe  @at    <  @less   _     -     @undr   @slsh   @bslsh   _     _
@@ -126,9 +129,9 @@
 )
 
 (deflayer colemak
-    _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    @qwty     _     _     _     _     _     _     _     _     _     _     _     _     _
     _     q     w     f     p     b     j     l     u     y     ö     å     _
-    _     a     r     s     t     g     m     n     e     i     o     ä     _     _
+    @ctlesc     a     r     s     t     g     m     n     e     i     o     ä     _     _
     _     _     z     x     c     d     v     k     h     _     _     _     _
       _       _     @holdnum      _    @holdsym   @holdnav   _     _
 )
