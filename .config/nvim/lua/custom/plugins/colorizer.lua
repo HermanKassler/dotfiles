@@ -7,6 +7,7 @@ return {
       RRGGBBAA = true,
       css = true,
       sass = { enable = true, parsers = { 'css' } },
+      names = false,
       -- css_fn = true,
     },
   },

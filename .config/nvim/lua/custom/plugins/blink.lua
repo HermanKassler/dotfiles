@@ -33,6 +33,7 @@ return {
       },
       'folke/lazydev.nvim',
       'saghen/blink.compat',
+      'archie-judd/blink-cmp-words',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -80,8 +81,8 @@ return {
           end,
           'fallback',
         },
-        ['<C-L>'] = { 'snippet_forward', 'fallback' },
-        ['<C-H>'] = { 'snippet_backward', 'fallback' },
+        ['<C-J>'] = { 'snippet_forward', 'fallback' },
+        ['<C-K>'] = { 'snippet_backward', 'fallback' },
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
@@ -124,6 +125,40 @@ return {
             module = 'blink.compat.source',
             score_offset = 103,
           },
+          dictionary = {
+            name = 'blink-cmp-words',
+            module = 'blink-cmp-words.dictionary',
+            -- All available options
+            opts = {
+              -- The number of characters required to trigger completion.
+              -- Set this higher if completion is slow, 3 is default.
+              dictionary_search_threshold = 3,
+              score_offset = -100,
+              definition_pointers = { '!', '&', '^' },
+            },
+          },
+          -- thesaurus = {
+          --   name = 'blink-cmp-words',
+          --   module = 'blink-cmp-words.thesaurus',
+          --   opts = {
+          --     score_offset = -10,
+          --     -- Default pointers define the lexical relations listed under each definition,
+          --     -- see Pointer Symbols below.
+          --     -- Default is as below ("antonyms", "similar to" and "also see").
+          --     definition_pointers = { '!', '&', '^' },
+          --     -- The pointers that are considered similar words when using the thesaurus,
+          --     -- see Pointer Symbols below.
+          --     -- Default is as below ("similar to", "also see" }
+          --     similarity_pointers = { '&', '^' },
+          --     -- The depth of similar words to recurse when collecting synonyms. 1 is similar words,
+          --     -- 2 is similar words of similar words, etc. Increasing this may slow results.
+          --     similarity_depth = 2,
+          --   },
+          -- },
+        },
+        per_filetype = {
+          -- text = { 'dictionary' },
+          markdown = { inherit_defaults = true, 'dictionary' },
         },
       },
 
@@ -136,7 +171,7 @@ return {
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'prefer_rust' },
 
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },

@@ -70,7 +70,7 @@ return {
           insert_tag = '<C-l>',
         },
       },
-      wiki_link_func = 'use_alias_only',
+      wiki_link_func = 'prepend_note_path',
 
       -- Optional, customize how note file names are generated given the ID, target directory, and title.
       ---@param spec { id: string, dir: obsidian.Path, title: string|? }
@@ -114,6 +114,9 @@ return {
       vim.keymap.set('n', '<leader>ob', '<CMD>ObsidianBacklink<CR>')
       vim.keymap.set('n', '<leader>oo', '<CMD>ObsidianOpen<CR>')
       vim.keymap.set('v', '<leader>oe', '<CMD>ObsidianExtractNote<CR>')
+      vim.keymap.set('n', '<leader>ot', '<CMD>ObsidianTags<CR>')
+      vim.keymap.set('n', '<leader>op', '<CMD>ObsidianPasteImg<CR>')
+      vim.opt.conceallevel = 2
       require('obsidian').setup(opts)
     end,
   },
