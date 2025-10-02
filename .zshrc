@@ -92,5 +92,9 @@ function zvm_after_init() {
 }
 
 
+# Required due to GTK 4.20 breaking dead keys (~^ etc). Look up a better fix
+# Relevant: https://github.com/ghostty-org/ghostty/discussions/8899
+export GTK_IM_MODULE=simple
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
