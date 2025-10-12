@@ -497,5 +497,8 @@
   "theme.bar.buttons.workspaces.pill.height": "4.5em",
   "theme.bar.buttons.workspaces.pill.width": "4.5em",
   "theme.notification.border_radius": "2em",
-  "theme.bar.menus.menu.notifications.height": "70.15em"
+  "theme.bar.menus.menu.notifications.height": "70.15em",
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
 }

@@ -1,4 +1,8 @@
 #!/bin/zsh
+
+
+#------------------KTH------------------
+alias compsec="docker run -it --rm -v .:/workdir -w /workdir compsec"
 #------------------GIT------------------
 alias gitcam='git commit -a -m '
 alias gits='git status'
@@ -16,6 +20,7 @@ alias v.='nvim .'
 alias dvim='nvim .'
 alias cdconfig='cd ~/.config/nvim'
 alias vdot='nvim ~/dotfiles/'
+alias öq='echo "not in vim dumbass"'
 
 #------------------TMUX------------------
 alias tls='tmux ls'
@@ -27,6 +32,7 @@ alias td='tmux detach'
 #------------------SSH------------------
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+alias mntkth='sshfs toreste@staff-shell.sys.kth.se ~/Documents/kth/ssh-mnt'
 
 
 #-----------------CLIs/Related------------
