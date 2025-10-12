@@ -1,7 +1,8 @@
 return {
   {
     'debugloop/telescope-undo.nvim',
-    enabled = false,
+    enabled = true,
+    event = 'VeryLazy',
     dependencies = { -- note how they're inverted to above example
       {
         'nvim-telescope/telescope.nvim',
@@ -10,7 +11,7 @@ return {
     },
     keys = {
       { -- lazy style key map
-        '<leader>u',
+        '<leader>su',
         '<cmd>Telescope undo<cr>',
         desc = 'undo history',
       },

@@ -3,7 +3,7 @@ return {
     'kevinhwang91/nvim-ufo',
     enabled = true,
     dependencies = { 'kevinhwang91/promise-async', 'luukvbaal/statuscol.nvim' },
-    event = 'VeryLazy',
+    event = 'VimEnter',
     config = function()
       vim.o.foldcolumn = '1'
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value

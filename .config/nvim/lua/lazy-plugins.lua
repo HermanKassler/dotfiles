@@ -6,7 +6,7 @@ require('lazy').setup({
     priority = 1000,
     config = true,
   },
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth', lazy = true }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -49,7 +49,7 @@ require('lazy').setup({
   { 'Bilal2453/luvit-meta', lazy = true },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VeryLazy', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.treesitter',
