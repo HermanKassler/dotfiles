@@ -10,9 +10,13 @@ makepkg -si
 echo "installing ssh..."
 sudo pacman -S openssh
 
+echo "installing zsh..."
+sudo pacman -S zsh
+chsh -s $(which zsh)
+
 echo "Installing fzf..."
 sudo pacman -S fzf
-echo "eval \"$(fzf --bash)\""
+echo "eval \"$(fzf --zsh)\""
 
 echo "installing bat..."
 sudo pacman -S bat 
@@ -23,20 +27,19 @@ echo "installing fdfind..."
 sudo pacman -S fd
 sudo ln -s /bin/fd /bin/fdfind
 
-# echo "installing starship..."
-# sudo pacman -S starship
-# echo "eval \"$(starship init bash)\"" >> ~/.bashrc
-# echo "export STARSHIP_CONFIG=~/.config/starship/starship.toml" >> ~/.bashrc
+echo "installing terminals..."
+sudo pacman -S ghostty
+sudo pacman -S kitty # For backup in case ghostty breaks
 
 echo "installing eza..."
 sudo pacman -S eza
 
-echo "installing neofetch..."
-sudo pacman -S neofetch
+echo "installing fastfetch..."
+sudo pacman -S fastfetch
 
 echo "installing atuin..."
 sudo pacman -S atuin
-echo "bind -x '\"\C-r\": __atuin_history'" >> ~/.bashrc
+# echo "bind -x '\"\C-r\": __atuin_history'" >> ~/.bashrc
 
 echo "installing btop..."
 sudo pacman -S btop
@@ -62,13 +65,18 @@ sudo pacman -S qrcp
 echo "installing arch wiki"
 sudo pacman -S arch-wiki-docs
 
+sudo pacman -S sshfs
+sudo pacman -S ethersync
+# sudo pacman -S 
+
 echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher
+sudo pacman -S vlc
+yay -S zen-browser
 
 
 echo "-------------HYPERLAND---------------"
-echo "installing waybar..."
 sudo pacman -S hyprpaper
 sudo pacman -S hyprlock
 sudo pacman -S hypridle
@@ -80,7 +88,7 @@ pacman -S xdg-desktop-portal-hyprland
 sudo pacman -S hyprpolkitagent
 sudo pacman -S qt6-wayland
 sudo pacman -S qt5-wayland
-sudo pacman -S hyprpanel
+yay -S ags-hyprpanel-git
 
 
 
