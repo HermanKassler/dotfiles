@@ -117,6 +117,8 @@ return {
       vim.keymap.set('n', '<leader>ot', '<CMD>ObsidianTags<CR>')
       vim.keymap.set('n', '<leader>op', '<CMD>ObsidianPasteImg<CR>')
       vim.opt.conceallevel = 2
+
+      vim.opt.makeprg = 'pandoc % -o ./ignored_files/%:t:r.pdf'
       require('obsidian').setup(opts)
     end,
   },
