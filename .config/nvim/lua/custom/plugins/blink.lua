@@ -114,7 +114,7 @@ return {
       },
 
       sources = {
-        default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           obsidian = {
@@ -165,7 +165,7 @@ return {
         },
         per_filetype = {
           -- text = { 'dictionary' },
-          markdown = { inherit_defaults = true, 'dictionary' },
+          markdown = { 'obsidian', 'obsidian_new', 'obsidian_tags', inherit_defaults = true, 'dictionary' },
         },
       },
 
