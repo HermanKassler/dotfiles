@@ -1,7 +1,6 @@
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
 
 vim.keymap.set('n', '<leader>w', function()
@@ -9,12 +8,15 @@ vim.keymap.set('n', '<leader>w', function()
   vim.cmd.echo '"Saved Buffer"'
 end, { desc = 'Save buffer' })
 
+vim.keymap.set('n', '<leader>wa', function()
+  vim.cmd.wall()
+  vim.cmd.echo '"Saved All Buffers"'
+end, { desc = 'Save all buffers' })
+
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
-vim.keymap.set('n', 'L', '$')
-vim.keymap.set('n', 'H', '_')
 vim.keymap.set('n', '<leader>,', 'A;<Esc>')
-vim.keymap.set('n', '<leader>md', ':MarkdownPreview <CR>')
 vim.keymap.set('v', '<leader>n', ':norm ', { desc = 'Start norm command' })
+vim.keymap.set('v', '<leader>mm', '<cmd>make<cr>', { desc = '[M]ake' })
 
 -- vim.keymap.set('n', '<C-U>', '<C-U>zz')
 -- vim.keymap.set('n', '<C-D>', '<C-D>zz')
