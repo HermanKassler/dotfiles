@@ -17,6 +17,17 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      require('mini.operators').setup {
+        exchange = {
+          prefix = 'ge',
+        },
+        replace = {
+          prefix = 'gp',
+
+          -- Whether to reindent new text to match previous indent
+          reindent_linewise = true,
+        },
+      }
 
       require('mini.move').setup()
       require('mini.align').setup {
