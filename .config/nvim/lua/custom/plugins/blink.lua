@@ -117,21 +117,6 @@ return {
         default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-          obsidian = {
-            name = 'obsidian',
-            module = 'blink.compat.source',
-            score_offset = 104,
-          },
-          obsidian_new = {
-            name = 'obsidian_new',
-            module = 'blink.compat.source',
-            score_offset = 102,
-          },
-          obsidian_tags = {
-            name = 'obsidian_tags',
-            module = 'blink.compat.source',
-            score_offset = 103,
-          },
           dictionary = {
             name = 'blink-cmp-words',
             module = 'blink-cmp-words.dictionary',
@@ -164,8 +149,7 @@ return {
           -- },
         },
         per_filetype = {
-          -- text = { 'dictionary' },
-          markdown = { 'obsidian', 'obsidian_new', 'obsidian_tags', inherit_defaults = true, 'dictionary' },
+          -- markdown = { inherit_defaults = true, 'dictionary' },
         },
       },
 

@@ -2,7 +2,7 @@
 
 
 #------------------KTH------------------
-alias compsec="docker run -it --rm -v .:/workdir -w /workdir compsec"
+alias compsec="~/bin/docker run -it --rm -v .:/workdir -w /workdir compsec"
 #------------------GIT------------------
 alias gitcam='git commit -a -m '
 alias gits='git status'
@@ -45,7 +45,7 @@ alias top='btop'
 alias mntwin='sudo mount /dev/sda3 /mnt/windows'
 alias cdwin='cd /mnt/windows/Users/toreg/'
 alias mtgn='cd /mnt/windows/Users/toreg/Pictures/Mottagningen\ 25/'
-alias notes='nvim ~/Documents/notes/home.md'
+alias notes='nvim ~/Documents/kth/notes/home.md'
 
 function wiki(){
     local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always | sed 's/\.[^.]*$//'| fzf ) || return
