@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
-vim.keymap.set('n', 'z1', 'z=1', { desc = 'Select best spelling suggestion' })
+vim.keymap.set('n', 'z1', '1z=]s', { desc = 'Select best spelling suggestion' })
 
 vim.keymap.set('n', '<leader>w', function()
   vim.cmd.write()
