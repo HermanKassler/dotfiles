@@ -28,6 +28,7 @@ return {
         end,
       })
       :map '<leader>td'
+
     Snacks.toggle
       .new({
         id = 'relativenumber',

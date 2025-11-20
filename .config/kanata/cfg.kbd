@@ -38,6 +38,7 @@
     holdnav (layer-while-held nav)
     holdsym (layer-while-held symbols)
     holdnum (layer-while-held num)
+    spacenum (tap-hold-release $tt $ht spc (layer-while-held num))
     holdmod (tap-hold-release $tt $ht  § (layer-while-held nomods))
     ctlesc (tap-hold-release $tt $ht esc lctl)
     d (tap-hold-release $tt $ht d lsft ) ;; tap d  ;; hold shift
@@ -117,7 +118,7 @@
       _       _     _      _        _          _      _     _      _      _     _   _   _
    @ctlesc   @a   @chs   @chd     @chf         _      _   @chj   @chk   @chl   @ö   _   _   _
       _       _     _      _        _          _      _     _      _      _     _   _   _
-      _       _     @holdnum      _    @holdsym   @holdnav   _     _
+      _       _            @holdnav    @spacenum   @holdsym      _     _   _ 
 )
 
 (deflayer symbols
@@ -137,11 +138,11 @@
 )
 
 (deflayer nav
-    _     _     _     _     _     _       _        _        _        _        _      _     _     _
-    _     _     7     8     9     _       _        _       up        _        _      _     _
-    _     0     4     5     6     _     home     left     down     right     end     _     _     _
-    _     _     _     1     2     3       _        _        _        _        _      _     _
-  _    _    _                   _                   _    _    _    _
+        _     _        _        _        _        _     _        _        _      _         _       _     _     _
+        _     _        7        8        9        _     _        _        up     _         _       _     _
+        _     lmet     lalt     lsft     lctl     _     left     down     up     right     _       _     _     _
+        _     _        _        1        2        3     _        home     _      _         end     _     _
+        _     _        _        _        _        _     _        _
 )
 
 (deflayer num

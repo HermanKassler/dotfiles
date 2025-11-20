@@ -9,8 +9,10 @@
 vim.loader.enable()
 require 'custom.keymaps'
 require 'custom.options'
+
 -- [[Install lazy.nvim]]
 require 'lazy-bootstrap'
+
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 --

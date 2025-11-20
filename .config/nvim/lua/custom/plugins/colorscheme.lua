@@ -8,11 +8,7 @@ return {
       local colors = require('gruvbox').palette
       vim.api.nvim_set_hl(0, 'NoiceCmdlinePopupBorder', { link = 'GruvboxBg0' })
       vim.api.nvim_set_hl(0, 'NoiceCmdlineicon', { link = 'GruvboxBg0' })
-      -- vim.api.nvim_set_hl(0, 'NoiceCmdlinePopupBorderSearch', { link = 'GruvboxYellow' })
-      -- vim.api.nvim_set_hl(0, 'NoiceCmdlineiconSearch', { link = 'GruvboxYellow' })
-      --harpoon
       vim.api.nvim_set_hl(0, 'HarpoonWindow', { link = 'GruvboxBg0' })
-      --snacks
       vim.api.nvim_set_hl(0, 'SnacksIndentScope', { link = 'GruvboxGray' })
 
       -- Load the colorscheme here.

@@ -1,4 +1,3 @@
--- For `plugins/helpview.lua` users.
 return {
   {
 

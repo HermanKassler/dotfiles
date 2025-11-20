@@ -1,7 +1,8 @@
 return {
   {
     'catgoose/nvim-colorizer.lua',
-    event = 'VeryLazy',
+    -- event = 'VeryLazy',
+    ft = { 'css', 'html' },
     opts = { -- set to setup table
       RRGGBBAA = true,
       css = true,

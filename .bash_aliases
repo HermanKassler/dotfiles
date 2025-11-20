@@ -3,6 +3,7 @@
 
 #------------------KTH------------------
 alias compsec="~/bin/docker run -it --rm -v .:/workdir -w /workdir compsec"
+
 #------------------GIT------------------
 alias gitcam='git commit -a -m '
 alias gits='git status'
@@ -17,10 +18,9 @@ alias lg='lazygit'
 #------------------NVIM------------------
 alias v='nvim'
 alias v.='nvim .'
-alias dvim='nvim .'
-alias cdconfig='cd ~/.config/nvim'
 alias vdot='nvim ~/dotfiles/'
 alias öq='echo "not in vim dumbass"'
+alias öwq='echo "not in vim dumbass"'
 
 #------------------TMUX------------------
 alias tls='tmux ls'
@@ -28,17 +28,14 @@ alias tas='tmux attach -t'
 alias ta='tmux attach'
 alias td='tmux detach'
 
-
 #------------------SSH------------------
 alias sshkth='ssh toreste@staff-shell.sys.kth.se'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 alias mntkth='sshfs toreste@staff-shell.sys.kth.se ~/Documents/kth/ssh-mnt'
 
-
 #-----------------CLIs/Related------------
 alias neofetch='fastfetch'
-alias pbcopy='xclip -selection clipboard'
-alias dircp='pwd | pbcopy'
+alias dircp='pwd | wl-copy'
 alias y='yazi'
 alias note='v /tmp/scratchpad'
 alias top='btop'
@@ -67,10 +64,11 @@ function lcroc(){
 
 #------------------Movement------------------
 alias cdkth='cd ~/Documents/kth'
-alias cddot='cd ~/dotfiles'
+alias dot='cd ~/dotfiles'
 alias ..='cd ..'
+alias ../..='cd ../..'
 
-show_file_or_dir_preview="if [ -d {} ]; then tree -L 2 -C --dirsfirst {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
+show_file_or_dir_preview="if [ -d {} ]; then tree -L 1 -C --dirsfirst {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
 # show_file_or_dir_preview="if [ -d {} ]; then eza --color=always {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
 function fd() {
     local dirname

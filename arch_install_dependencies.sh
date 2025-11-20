@@ -67,6 +67,7 @@ sudo pacman -S arch-wiki-docs
 
 sudo pacman -S sshfs
 sudo pacman -S ethersync
+sudo pacman -S teeldear
 # sudo pacman -S 
 
 echo "--------------APPLICATIONS---------------"

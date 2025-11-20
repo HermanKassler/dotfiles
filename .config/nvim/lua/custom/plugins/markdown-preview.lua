@@ -2,7 +2,7 @@ return {
   'iamcco/markdown-preview.nvim',
   cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
   ft = { 'markdown' },
-  lazy = true,
+  -- lazy = true,
   config = function()
     vim.keymap.set('n', '<leader>md', ':MarkdownPreview <CR>')
   end,

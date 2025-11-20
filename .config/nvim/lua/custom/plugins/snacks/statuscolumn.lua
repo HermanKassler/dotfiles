@@ -2,7 +2,6 @@ return {
   'snacks.nvim',
   opts = {
     statuscolumn = {
-      -- enabled = false,
       left = { 'mark', 'sign', 'git' }, -- priority of signs on the left (high to low)
       right = { 'fold' }, -- priority of signs on the right (high to low)
       folds = {

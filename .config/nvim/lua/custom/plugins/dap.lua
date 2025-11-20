@@ -18,8 +18,8 @@ return {
       require('nvim-dap-virtual-text').setup()
 
       vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
-      vim.keymap.set('n', '<space>b', dap.toggle_breakpoint)
-      vim.keymap.set('n', '<space>gb', dap.run_to_cursor)
+      vim.keymap.set('n', '<space>b', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
+      vim.keymap.set('n', '<space>gb', dap.run_to_cursor, { desc = 'Run to cursor' })
 
       -- Eval var under cursor
       vim.keymap.set('n', '<space>d?', function()

@@ -3,7 +3,7 @@ return {
 
     'obsidian-nvim/obsidian.nvim',
     version = '*', -- recommended, use latest release instead of latest commit
-    lazy = true,
+    -- lazy = true,
     ft = 'markdown',
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
@@ -56,7 +56,7 @@ return {
       vim.keymap.set('n', '<leader>oc', '<CMD>Obsidian toc<CR>')
       vim.keymap.set({ 'v', 'x' }, '<leader>on', '<CMD>Obsidian link_new<CR>')
       vim.keymap.set('n', '<leader>on', '<CMD>Obsidian new<CR>')
-      vim.keymap.set('n', '<leader>ob', '<CMD>Obsidian backlink<CR>')
+      vim.keymap.set('n', '<leader>ob', '<CMD>Obsidian backlinks<CR>')
       vim.keymap.set('n', '<leader>oo', '<CMD>Obsidian open<CR>')
       vim.keymap.set('v', '<leader>oe', '<CMD>Obsidian extract_note<CR>')
       vim.keymap.set('n', '<leader>ot', '<CMD>Obsidian tags<CR>')
