@@ -1,6 +1,0 @@
-set $background     #282828FF
-set $backgroundalt #353535FF
-set $foreground     #EBDBB2FF
-set $selected       #83A598FF
-set $active         #B8BB26FF
-set $urgent         #FB4934FF
