@@ -21,6 +21,10 @@ return {
           name = 'notes',
           path = '~/Documents/kth/notes',
         },
+        {
+          name = 'mtgn',
+          path = '~/Documents/MTGN/notes/',
+        },
       },
       legacy_commands = false,
       wiki_link_func = 'prepend_note_path',
