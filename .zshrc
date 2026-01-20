@@ -1,13 +1,15 @@
 #!/bin/zsh
+
 # tmux
 if [[ -z $TMUX ]]; then
     echo "Not in TMUX session, attaching"
     tmux attach
     if [ $? != 0 ]; then
-	echo "attaching failed, restoring sessions"
-	tmux 
+        echo "attaching failed, restoring sessions"
+        tmux 
     fi
 fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
