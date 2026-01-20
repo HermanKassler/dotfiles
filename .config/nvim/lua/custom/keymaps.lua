@@ -19,6 +19,7 @@ vim.keymap.set('n', '<leader>,', 'A;<Esc>', { desc = 'Add a ; at end of line' })
 vim.keymap.set('v', '<leader>n', ':norm ', { desc = 'Start norm command' })
 vim.keymap.set('v', '<leader>mm', '<cmd>make<cr>', { desc = '[M]ake' })
 vim.keymap.set('n', '<s-tab>', '<C-6>', { desc = 'Alternate file' })
+vim.keymap.set('n', 'g_', 'g^', { desc = 'Go to start of virtual line' })
 
 vim.keymap.set('n', '[c', function()
   require('treesitter-context').go_to_context(vim.v.count1)
