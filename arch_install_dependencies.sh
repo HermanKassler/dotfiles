@@ -59,6 +59,8 @@ sudo pacman -S yazi
 echo "installing croc..."
 sudo pacman -S croc
 
+
+
 echo "installing qrcp..."
 sudo pacman -S qrcp
 
@@ -69,6 +71,7 @@ sudo pacman -S sshfs
 sudo pacman -S ethersync
 sudo pacman -S teeldear
 sudo pacman -S nwg-displays
+sudo pacman -S rofi
 # sudo pacman -S 
 
 echo "--------------APPLICATIONS---------------"

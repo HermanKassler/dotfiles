@@ -35,14 +35,14 @@ alias mntkth='sshfs toreste@staff-shell.sys.kth.se ~/Documents/kth/ssh-mnt'
 
 #-----------------CLIs/Related------------
 alias neofetch='fastfetch'
-alias dircp='pwd | wl-copy'
+alias dircp='pwd | wl-copy && echo "Copied pwd"'
 alias y='yazi'
 alias note='v /tmp/scratchpad'
 alias top='btop'
 alias mntwin='sudo mount /dev/sda3 /mnt/windows'
 alias cdwin='cd /mnt/windows/Users/toreg/'
-alias mtgn='cd /mnt/windows/Users/toreg/Pictures/Mottagningen\ 25/'
-alias notes='nvim ~/Documents/kth/notes/home.md'
+alias mtgn='v ~/Documents/MTGN/notes/'
+alias notes='nvim ~/Documents/kth/notes/home-1770477200.md'
 alias lz='eza'
 
 function wiki(){

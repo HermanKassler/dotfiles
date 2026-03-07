@@ -5,6 +5,11 @@ return {
     version = '*', -- recommended, use latest release instead of latest commit
     -- lazy = true,
     ft = 'markdown',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'saghen/blink.cmp',
+      'nvim-telescope/telescope.nvim',
+    },
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
     --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -16,6 +21,7 @@ return {
     ---@module 'obsidian'
     ---@type obsidian.config
     opts = {
+        ui = {enabled = false},
       workspaces = {
         {
           name = 'notes',
@@ -26,8 +32,15 @@ return {
           path = '~/Documents/MTGN/notes/',
         },
       },
+
+    completion = {
+      nvim_cmp = false,
+      blink = true,
+      min_chars = 1,
+    },
+
       legacy_commands = false,
-      wiki_link_func = 'prepend_note_path',
+      -- wiki_link_func = 'prepend_note_path',
 
       -- Optional, customize how note IDs are generated given an optional title.
       ---@param title string|?
@@ -71,4 +84,4 @@ return {
       require('obsidian').setup(opts)
     end,
   },
-}
+}

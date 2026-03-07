@@ -46,7 +46,7 @@ return {
         cpp = { 'clang-format' },
         cuda = { 'custom_clang' },
         cs = { 'custom_clang' },
-        java = { 'google_java_format' },
+        -- java = { 'google_java_format' },
         typst = { 'prettypst' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
