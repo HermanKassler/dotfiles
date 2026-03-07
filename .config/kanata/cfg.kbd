@@ -36,7 +36,8 @@
 
 (defalias
     holdnav (layer-while-held nav)
-    holdsym (layer-while-held symbols)
+    ;; holdsym (layer-while-held symbols)
+    holdsym (tap-hold-release $tt $ht bspc (layer-while-held symbols))
     holdnum (layer-while-held num)
     toggno (layer-switch nomods)
     toggdef (layer-switch default)
