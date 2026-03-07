@@ -4,7 +4,7 @@ return {
     image = {
       math = {
         latex = {
-          font_size = 'Lrge',
+          font_size = 'Large',
         },
       },
     },
