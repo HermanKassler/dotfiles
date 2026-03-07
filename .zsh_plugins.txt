@@ -1,0 +1,4 @@
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+jeffreytse/zsh-vi-mode
+romkatv/powerlevel10k

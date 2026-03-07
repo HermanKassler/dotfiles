@@ -17,6 +17,7 @@ _darcs
 
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
+.*.bak
 
 ^/README.*
 ^/LICENSE.*
@@ -26,3 +27,4 @@ install_dependencies.sh
 arch_install_dependencies.sh
 ubuntu_install_dependencies.sh
 assets
+fix_zsh_history.sh
