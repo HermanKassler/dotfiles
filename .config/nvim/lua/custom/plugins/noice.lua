@@ -40,7 +40,8 @@ return {
         cmdline = {
           format = {
             cmdline = { pattern = '^:', icon = ':', lang = 'vim' },
-            normal = { pattern = "'<,'>norm", icon = '', lang = 'vim' },
+            normal = { pattern = "'<,'>norm ", icon = '', lang = 'vim' },
+            normal = { pattern = "'<,'>g/.*/norm ", icon = '', lang = 'vim' },
           },
         },
         messages = {
