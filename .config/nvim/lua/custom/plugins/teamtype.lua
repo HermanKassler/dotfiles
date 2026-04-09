@@ -2,8 +2,8 @@ return {
   {
     'teamtype/teamtype-nvim',
     keys = {
-      { '<leader>ej', '<cmd>TeamtypeJumpToCursor<cr>' },
-      { '<leader>ef', '<cmd>TeamtypeFollow<cr>' },
+      { '<leader>lj', '<cmd>TeamtypeJumpToCursor<cr>' },
+      { '<leader>lf', '<cmd>TeamtypeFollow<cr>' },
     },
     lazy = false,
   },

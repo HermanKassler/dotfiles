@@ -1,0 +1,23 @@
+{
+  "Insert Theorem": {
+    "prefix": ["theorem"],
+    "body": "> [!THEOREM]\n> ",
+    "description": "Insert Theorem Callout"
+  },
+  "Insert proof": {
+    "prefix": ["proof"],
+    "body": "> [!proof]\n> ",
+    "description": "Insert proof Callout"
+  },
+
+  "Insert definition": {
+    "prefix": ["definition", "def"],
+    "body": "> [!definition]\n> ",
+    "description": "Insert definition Callout"
+  },
+  "Insert example": {
+    "prefix": ["example"],
+    "body": "> [!example]\n> ",
+    "description": "Insert example Callout"
+  }
+}

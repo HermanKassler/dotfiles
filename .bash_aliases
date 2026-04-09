@@ -44,6 +44,7 @@ alias cdwin='cd /mnt/windows/Users/toreg/'
 alias mtgn='v ~/Documents/MTGN/notes/'
 alias notes='nvim ~/Documents/kth/notes/home-1770477200.md'
 alias lz='eza'
+alias open='xdg-open'
 
 function wiki(){
     local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always | sed 's/\.[^.]*$//'| fzf ) || return

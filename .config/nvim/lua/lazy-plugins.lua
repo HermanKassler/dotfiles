@@ -1,11 +1,11 @@
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  {
-    'vhyrro/luarocks.nvim',
-    -- enabled = false,
-    priority = 1000,
-    config = true,
-  },
+  -- {
+  --   'vhyrro/luarocks.nvim',
+  --   -- enabled = false,
+  --   priority = 1000,
+  --   config = true,
+  -- },
   { 'tpope/vim-sleuth', lazy = true }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,

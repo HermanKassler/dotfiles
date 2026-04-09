@@ -3,7 +3,6 @@ return {
 
     'obsidian-nvim/obsidian.nvim',
     version = '*', -- recommended, use latest release instead of latest commit
-    -- lazy = true,
     ft = 'markdown',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -21,7 +20,7 @@ return {
     ---@module 'obsidian'
     ---@type obsidian.config
     opts = {
-        ui = {enabled = false},
+      ui = { enable = false },
       workspaces = {
         {
           name = 'notes',
@@ -32,12 +31,31 @@ return {
           path = '~/Documents/MTGN/notes/',
         },
       },
+      link = {
+        style = function(opts)
+          local anchor = ''
+          local header = ''
+          if opts.anchor then
+            anchor = opts.anchor.anchor
+            header = string.format(' ❯ %s', opts.anchor.header)
+          elseif opts.block then
+            anchor = '#' .. opts.block.id
+            header = '#' .. opts.block.id
+          end
 
-    completion = {
-      nvim_cmp = false,
-      blink = true,
-      min_chars = 1,
-    },
+          if opts.label ~= opts.path then
+            return string.format('[[%s%s|%s%s]]', opts.path, anchor, opts.label, header)
+          else
+            return string.format('[[%s%s]]', opts.path, anchor)
+          end
+        end,
+      },
+
+      completion = {
+        nvim_cmp = false,
+        blink = true,
+        min_chars = 1,
+      },
 
       legacy_commands = false,
       -- wiki_link_func = 'prepend_note_path',
@@ -61,6 +79,13 @@ return {
         end
         return prefix .. '-' .. tostring(os.time())
       end,
+      -- attachments = {
+      --   img_text_func = function(path)
+      --     local name = vim.fs.basename(tostring(path))
+      --     local encoded_name = require('obsidian.util').urlencode(path)
+      --     return string.format('![%s](%s)', name, encoded_name)
+      --   end,
+      -- },
     },
 
     config = function(_, opts)
@@ -75,7 +100,7 @@ return {
       vim.keymap.set('n', '<leader>on', '<CMD>Obsidian new<CR>')
       vim.keymap.set('n', '<leader>ob', '<CMD>Obsidian backlinks<CR>')
       vim.keymap.set('n', '<leader>oo', '<CMD>Obsidian open<CR>')
-      vim.keymap.set('v', '<leader>oe', '<CMD>Obsidian extract_note<CR>')
+      vim.keymap.set('v', '<leader>oe', ':Obsidian extract_note ')
       vim.keymap.set('n', '<leader>ot', '<CMD>Obsidian tags<CR>')
       vim.keymap.set('n', '<leader>op', '<CMD>Obsidian paste_img<CR>')
       vim.opt.conceallevel = 2
@@ -84,4 +109,4 @@ return {
       require('obsidian').setup(opts)
     end,
   },
-}
+}

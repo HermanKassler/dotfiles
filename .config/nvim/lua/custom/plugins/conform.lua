@@ -14,7 +14,7 @@ return {
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -31,6 +31,20 @@ return {
           lsp_format = lsp_format_opt,
         }
       end,
+      formatters = {
+        custom_clang = {
+          command = 'clang-format',
+          args = '--style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 100}"',
+        },
+        custom_google = {
+          command = 'google-java-format',
+          args = { '--aosp', '$FILENAME' },
+        },
+        custom_prettier = {
+          command = 'prettier',
+          args = 'prettier.tabWidth: 4',
+        },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
         c = { 'custom_clang' },
@@ -46,25 +60,11 @@ return {
         cpp = { 'clang-format' },
         cuda = { 'custom_clang' },
         cs = { 'custom_clang' },
-        -- java = { 'google_java_format' },
+        java = { 'custom_google' },
         typst = { 'prettypst' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
-      formatters = {
-        custom_clang = {
-          command = 'clang-format',
-          args = '--style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 100}"',
-        },
-        custom_google = {
-          command = 'google-java-format',
-          args = 'aosp = true',
-        },
-        custom_prettier = {
-          command = 'prettier',
-          args = 'prettier.tabWidth: 4',
-        },
       },
     },
   },

@@ -78,22 +78,18 @@ echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher
 sudo pacman -S vlc
+sudo pacman -S obsidian
+yay -S slack-desktop
 yay -S zen-browser
 
 
 echo "-------------HYPERLAND---------------"
-sudo pacman -S hyprpaper
-sudo pacman -S hyprlock
-sudo pacman -S hypridle
-sudo pacman -S waybar
-sudo pacman -S swaync
+sudo pacman -S hyprpaper hyprlock hypridle waybar swaync hyprpicker
 yay -S hyprshot
-sudo pacman -S hyprpicker
 pacman -S xdg-desktop-portal-hyprland
 sudo pacman -S hyprpolkitagent
 sudo pacman -S qt6-wayland
 sudo pacman -S qt5-wayland
-yay -S ags-hyprpanel-git
-
+yay -S noctalia-shell
 
 

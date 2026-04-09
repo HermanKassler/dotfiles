@@ -17,7 +17,7 @@ end, { desc = 'Save all buffers' })
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
 vim.keymap.set('n', '<leader>,', 'A;<Esc>', { desc = 'Add a ; at end of line' })
 vim.keymap.set('v', '<leader>n', ':g/.*/norm ', { desc = 'Start norm command' })
-vim.keymap.set('v', '<leader>mm', '<cmd>make<cr>', { desc = '[M]ake' })
+vim.keymap.set('n', '<leader>mm', '<cmd>make<cr>', { desc = '[M]ake' })
 vim.keymap.set('n', '<s-tab>', '<C-6>', { desc = 'Alternate file' })
 vim.keymap.set('n', 'g_', 'g^', { desc = 'Go to start of virtual line' })
 

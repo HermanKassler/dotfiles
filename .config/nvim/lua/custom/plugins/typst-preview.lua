@@ -9,6 +9,7 @@ return {
         ['tinymist'] = '/home/tore/.local/share/nvim/mason/bin/tinymist',
         ['websocat'] = '/bin/websocat',
       },
+      open_cmd = 'zen-browser --new-window %s',
     }, -- lazy.nvim will implicitly calls `setup {}`
   },
 }
