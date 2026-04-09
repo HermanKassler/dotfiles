@@ -4,9 +4,9 @@ return {
     ---@module 'oil'
     ---@type oil.SetupOpts
     -- priority = 500,
-    event = 'VimEnter',
+    -- event = 'VimEnter',
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    -- event = { 'VimEnter */*,.*', 'BufNew */*,.*' },
+    event = { 'VimEnter */*,.*', 'BufNew */*,.*' },
     -- opts = {
     -- columns = {
     --   'icon',
