@@ -7,8 +7,8 @@
 --  See `:help lua-guide-autocommands`
 
 vim.loader.enable()
-require 'custom.keymaps'
-require 'custom.options'
+require 'keymaps'
+require 'options'
 
 -- [[Install lazy.nvim]]
 require 'lazy-bootstrap'

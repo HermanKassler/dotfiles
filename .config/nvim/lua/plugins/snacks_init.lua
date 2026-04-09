@@ -12,7 +12,7 @@ return {
     --   },
     -- },
   },
-  import = 'custom.plugins.snacks',
+  import = 'plugins.snacks',
   config = function(_, opts)
     require('snacks').setup(opts)
   end,
