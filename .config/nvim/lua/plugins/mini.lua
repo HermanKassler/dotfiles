@@ -30,6 +30,10 @@ return {
       }
 
       require('mini.move').setup()
+      require('mini.sessions').setup()
+
+      vim.keymap.set('n', '<leader>rrr', '<cmd>lua MiniSessions.restart()<cr>', { desc = 'Restart Neovim' })
+
       require('mini.align').setup {
         modifiers = {
           -- Use 'T' modifier to remove both whitespace and indent
@@ -39,8 +43,6 @@ return {
         },
       }
       -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
       statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -62,8 +64,6 @@ return {
         return macro_status() .. '%2l:%-2v'
       end
       -- Function to show macro recording status
-
-      --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
 }
