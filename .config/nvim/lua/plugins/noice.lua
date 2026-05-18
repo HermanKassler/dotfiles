@@ -2,8 +2,8 @@ return {
   -- lazy.nvim
   {
     'folke/noice.nvim',
-    event = 'VimEnter',
-    -- event = 'VeryLazy',
+    -- event = 'VimEnter',
+    event = 'UIEnter',
     enabled = true,
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -29,7 +29,11 @@ return {
             ['vim.lsp.util.stylize_markdown'] = true,
             ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
           },
+          progress = {
+            enabled = false,
+          },
         },
+
         -- you can enable a preset for easier configuration
         presets = {
           command_palette = true, -- position the cmdline and popupmenu together

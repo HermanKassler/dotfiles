@@ -46,6 +46,11 @@ alias notes='nvim ~/Documents/kth/notes/home-1770477200.md'
 alias lz='eza'
 alias open='xdg-open'
 
+function cdir(){
+    mkdir $1
+    cd $1
+}
+
 function wiki(){
     local pattern=$(fdfind --base-directory /usr/share/doc/arch-wiki/html/en/ -t f --strip-cwd-prefix=always | sed 's/\.[^.]*$//'| fzf ) || return
     local file=$(fdfind . /usr/share/doc/arch-wiki/html/en/ | rg -m 1 $pattern)

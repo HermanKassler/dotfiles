@@ -41,17 +41,26 @@
     holdnum (layer-while-held num)
     toggno (layer-switch nomods)
     toggdef (layer-switch default)
+    toggbot  (layer-switch bottom_mod)
     spacenum (tap-hold-release $tt $ht spc (layer-while-held num))
     holdmod (tap-hold-release $tt $ht  § (layer-while-held nomods))
     ctlesc (tap-hold-release $tt $ht esc lctl)
     d (tap-hold-release $tt $ht d lsft ) ;; tap d  ;; hold shift
+    c (tap-hold-release $tt $ht c lsft ) 
     k (tap-hold-release $tt $ht k rsft );; tap k  ;; hold shift
+    , (tap-hold-release $tt $ht , rsft )
     f (tap-hold-release $tt $ht f lctl ) 
+    v (tap-hold-release $tt $ht v lctl ) 
     j (tap-hold-release $tt $ht j rctl ) 
+    m (tap-hold-release $tt $ht m rctl ) 
     s (tap-hold-release $tt $ht s lalt )
+    x (tap-hold-release $tt $ht x lalt )
+    . (tap-hold-release $tt $ht . lalt )
     l (tap-hold-release $tt $ht l lalt )
     a (tap-hold-release $tt $ht a lmet )
+    z (tap-hold-release $tt $ht z lmet )
     ö (tap-hold-release $tt $ht ö rmet )
+    - (tap-hold-release $tt $ht - rmet )
     excl    S-1
     quot    S-2
     at      RA-2
@@ -126,6 +135,14 @@
       _       _            @holdnav    @spacenum   @holdsym      _     _   _ 
 )
 
+(deflayer bottom_mod
+  @toggdef    _     _      _        _          _      _     _      _      _     _   _   _   _
+      _       _     _      _        _          _      _     _      _      _     _   _   _
+   @ctlesc    _     _   _     _         _      _   _   _   _   _   _   _   _
+      _       _     @z      @x        @c          @v      _     _      @m      @,     @.   @-   _
+      _       _            @holdnav    @spacenum   @holdsym      _     _   _ 
+)
+
 (deflayer symbols
   @cole   _     _     _     _    _     _     _       _       _       _      _     _   _
   _   _     _     _     _    _   @amp  @equal @lbrack @rbrack  @tild    _     _
@@ -143,7 +160,7 @@
 )
 
 (deflayer nav
-        _     _        _        _        _        _     _        _        _      _         _       _     _     _
+        @toggbot     _        _        _        _        _     _        _        _      _         _       _     _     _
         _     _        7        8        9        _     _        @scrld        @scrlup     _         _       _     _
         _     lmet     lalt     lsft     lctl     _     left     down     up     right     _       _     _     _
         _     _        _        1        2        3     _        home     _      _         end     _     _

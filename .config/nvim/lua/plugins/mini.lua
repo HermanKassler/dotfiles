@@ -3,45 +3,52 @@ return {
     'echasnovski/mini.nvim',
     event = 'VimEnter',
     config = function()
-      -- Better Around/Inside textobjects
-      --
-      -- Examples:
-      --  - va)  - [V]isually select [A]round [)]paren
-      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-      --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500 }
+      -- Create an autocommand to
+      vim.api.nvim_create_autocmd('UIEnter', {
+        once = true,
+        callback = function()
+          -- Better Around/Inside textobjects
+          --
+          -- Examples:
+          --  - va)  - [V]isually select [A]round [)]paren
+          --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+          --  - ci'  - [C]hange [I]nside [']quote
+          require('mini.ai').setup { n_lines = 500 }
 
-      -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
-      -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
-      require('mini.operators').setup {
-        exchange = {
-          prefix = 'ge',
-        },
-        replace = {
-          prefix = 'gp',
+          -- Add/delete/replace surroundings (brackets, quotes, etc.)
+          --
+          -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+          -- - sd'   - [S]urround [D]elete [']quotes
+          -- - sr)'  - [S]urround [R]eplace [)] [']
+          require('mini.surround').setup()
+          require('mini.operators').setup {
+            exchange = {
+              prefix = 'ge',
+            },
+            replace = {
+              prefix = 'gp',
 
-          -- Whether to reindent new text to match previous indent
-          reindent_linewise = true,
-        },
-      }
+              -- Whether to reindent new text to match previous indent
+              reindent_linewise = true,
+            },
+          }
+          require('mini.move').setup()
 
-      require('mini.move').setup()
+          require('mini.align').setup {
+            modifiers = {
+              -- Use 'T' modifier to remove both whitespace and indent
+              T = function(steps, _)
+                table.insert(steps.pre_justify, require('mini.align').gen_step.trim('both', 'remove'))
+              end,
+            },
+          }
+        end,
+      })
+
       require('mini.sessions').setup()
 
       vim.keymap.set('n', '<leader>rrr', '<cmd>lua MiniSessions.restart()<cr>', { desc = 'Restart Neovim' })
 
-      require('mini.align').setup {
-        modifiers = {
-          -- Use 'T' modifier to remove both whitespace and indent
-          T = function(steps, _)
-            table.insert(steps.pre_justify, require('mini.align').gen_step.trim('both', 'remove'))
-          end,
-        },
-      }
       -- Simple and easy statusline.
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font

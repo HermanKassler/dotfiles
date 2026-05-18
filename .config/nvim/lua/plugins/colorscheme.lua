@@ -31,5 +31,5 @@ return {
     config = true,
     opts = {},
   },
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, enabled = true },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, enabled = false },
 }

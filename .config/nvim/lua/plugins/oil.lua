@@ -1,12 +1,12 @@
 return {
   {
     'stevearc/oil.nvim',
+    -- priority = 500,
     ---@module 'oil'
     ---@type oil.SetupOpts
-    -- priority = 500,
     -- event = 'VimEnter',
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    event = { 'VimEnter */*,.*', 'BufNew */*,.*' },
+    event = { 'VimEnter */*,.*', 'BufNew */*,.*', 'VeryLazy' },
     -- opts = {
     -- columns = {
     --   'icon',
