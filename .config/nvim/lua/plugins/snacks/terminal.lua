@@ -3,6 +3,7 @@ return {
   opts = {
     terminal = {
       enabled = true,
+      win = { style = 'terminal' },
     },
   },
 

@@ -1,5 +1,3 @@
--- Example windowrule v1
--- windowrule = float, ^(kitty)$
 hl.window_rule({
 	name = "calculator",
 	float = true,
@@ -10,6 +8,12 @@ hl.window_rule({
 	name = "windowrule-2",
 	float = true,
 	match = { class = "^(blueman-manager)$" },
+})
+
+hl.window_rule({
+	name = "windowrule-2",
+	float = true,
+	match = { class = "^(zen)$", modal = true },
 })
 
 -- Ignore maximize requests from apps. You'll probably like this.
@@ -26,7 +30,6 @@ hl.window_rule({
 	match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
 })
 
---nvim-wl-anywhere
 hl.window_rule({
 	name = "windowrule-5",
 	float = true,
@@ -45,11 +48,6 @@ hl.window_rule({
 	match = { class = "com.network.manager" },
 })
 
--- windowrule = rounding 0, floating:0, onworkspace:f[1]windowrulev2 = float, class:nvim-wl-anywhere
--- windowrulev2 = pin, class:nvim-wl-anywhere
--- windowrulev2 = stayfocused, class:nvim-wl-anywhere
--- windowrulev2 = size 70% 70%, class:nvim-wl-anywhere
-
 -- smart gaps
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
 hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
@@ -58,7 +56,6 @@ hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, rounding = 0 }
 hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0 })
 hl.window_rule({ match = { float = false, workspace = "f[1]" }, rounding = 0 })
 
--- windowrule = float,initialtitle:^(Open File)$
 hl.window_rule({
 	name = " windowrule-8",
 	float = true,
@@ -89,16 +86,18 @@ hl.window_rule({
 	match = { title = "^(File Operation Progress)$" },
 })
 
-hl.window_rule({
+local suppress_discord = hl.window_rule({
 	name = "suppress_discord",
 	match = { class = "^(discord)*" },
 	no_initial_focus = true,
+	focus_on_activate = false,
 	workspace = 3,
 })
 
-hl.window_rule({
+local suppress_zen = hl.window_rule({
 	name = "suppress_zen",
-	match = { class = "zen" },
+	match = { class = "^(zen)*" },
+	no_initial_focus = true,
 	focus_on_activate = false,
 })
 
@@ -127,5 +126,22 @@ hl.window_rule({
 	no_shadow = true,
 })
 
--- exec-once = sleep 10; hyprctl keyword 'windowrule[suppress_zen]:focus_on_activate on'
--- exec-once = sleep 20; hyprctl keyword 'windowrule[suppress_discord]:enable false'
+hl.window_rule({
+	name = "vicinae",
+	match = { class = "vicinae" },
+	border_size = 0,
+	rounding = 10,
+})
+
+hl.on("window.open", function(window)
+	if window.class == "discord" and window.title ~= "Discord Updater" then
+		-- hl.notification.create({ text = "class: " .. window.class .. "   name: " .. window.title, duration = 3000 })
+		suppress_discord:set_enabled(false)
+	elseif window.class == "zen" then
+		hl.notification.create({
+			text = "class: " .. window.class .. "   name: " .. window.title,
+			duration = 3000,
+		})
+		suppress_zen:set_enabled(false)
+	end
+end)

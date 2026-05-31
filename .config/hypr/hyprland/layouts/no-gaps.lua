@@ -2,56 +2,26 @@
 --## LOOK AND FEEL ###
 --####################
 
--- Refer to https://wiki.hyprland.org/Configuring/Variables/
-
--- https://wiki.hyprland.org/Configuring/Variables/#general
 NO_GAPS = {
 	general = {
 		gaps_in = 0,
 		gaps_out = 0,
 		border_size = 0,
-		-- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors,
-		col = {
-			active_border = { colors = { "rgba(b2bb26ff)", "rgba(458588ff)", angle = 45 } },
-			-- col.active_border =  rgba(689d6aff) ,
-			-- col.active_border =  rgba(8ec07cff) ,
-			inactive_border = "rgba(595959aa)",
-		},
-		-- Set to true enable resizing windows by clicking and dragging on borders and gaps,
-		resize_on_border = true,
-		-- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on,
-		allow_tearing = false,
-		layout = "dwindle",
 	},
 
 	decoration = {
 		rounding = 0,
-		-- rounding_power = 2
-
-		-- Change transparency of focused and unfocused windows
-		active_opacity = 1.0,
-		inactive_opacity = 0.8,
 
 		shadow = {
 			enabled = false,
-			range = 5,
-			--offset = -3 2,
-			render_power = 11,
-			color = "rgba(1a1a1aee)",
 		},
 
-		-- https://wiki.hyprland.org/Configuring/Variables/#blur
 		blur = {
-			enabled = true,
 			size = 6,
 			passes = 2,
 			noise = 0.11,
-			-- xray = true
-
 			vibrancy = 0.1696,
 		},
 	},
 }
 hl.config(NO_GAPS)
-
--- https://wiki.hyprland.org/Configuring/Variables/#decoration

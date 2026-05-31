@@ -28,14 +28,11 @@ hl.env("HYPRSHOT_DIR", "Pictures/Screenshots/")
 hl.bind(mainMod .. "SHIFT + S", hl.dsp.exec_cmd("hyprshot --freze -m region"))
 
 hl.bind(mainMod .. "C", hl.dsp.exec_cmd("gnome-calculator"))
--- bind = $mainMod SHIFT, B,exec, ~/.config/waybar/scripts/toggle.sh # toggle waybar
--- bind = $mainMod SHIFT, B,exec,  ~/.config/hyprpanel/scripts/toggle.sh # toggle hyprpanel
-hl.bind(mainMod .. "SHIFT + P", hl.dsp.exec_cmd("hyprpicker -g"))
+hl.bind(mainMod .. "SHIFT + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. "V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
 hl.bind(mainMod .. "SHIFT + G ", function()
 	local currentGaps = hl.get_config("general.gaps_out").top
-
 	if currentGaps == 0 then
 		require("hyprland.layouts.default")
 		hl.config(DEFAULT)
@@ -45,7 +42,6 @@ hl.bind(mainMod .. "SHIFT + G ", function()
 	end
 end)
 
-hl.bind(mainMod .. "", hl.dsp.exec_cmd(""))
 -- Groups
 hl.bind(mainMod .. "G", hl.dsp.group.toggle())
 hl.bind(mainMod .. "TAB", hl.dsp.group.next())
@@ -68,24 +64,21 @@ local function focus_workspace(w)
 	hl.bind(mainMod .. tostring(w), hl.dsp.focus({ workspace = w }))
 end
 
-hl.bind(mainMod .. "0", hl.dsp.focus({ workspace = 10 }))
-for i = 1, 9 do
-	focus_workspace(i)
-end
-
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 local function move_to_workspace(w)
-	hl.bind(mainMod .. tostring(w), hl.dsp.window.move({ workspace = tostring(w), follow = false }))
+	hl.bind(mainMod .. "SHIFT + " .. tostring(w), hl.dsp.window.move({ workspace = w, follow = false }))
 end
 
-hl.bind(mainMod .. "0", hl.dsp.window.move({ workspace = 10, follow = false }))
+hl.bind(mainMod .. "0", hl.dsp.focus({ workspace = 10 }))
+hl.bind(mainMod .. "SHIFT + 0", hl.dsp.window.move({ workspace = 10, follow = false }))
 for i = 1, 9 do
 	move_to_workspace(i)
+	focus_workspace(i)
 end
 
 -- -- Example special workspace (scratchpad)
 hl.bind(mainMod .. "A", hl.dsp.workspace.toggle_special())
-hl.bind(mainMod .. "SHIFT + A", hl.dsp.window.move({ workspace = "special", follor = false }))
+hl.bind(mainMod .. "SHIFT + A", hl.dsp.window.move({ workspace = "special", follow = false }))
 
 -- Volume
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
@@ -93,17 +86,9 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 
 -- Media
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = true })
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 10%+"), { locked = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 10%-"), { locked = true })
-
--- -- Scroll through existing workspaces with mainMod + scroll
--- bind = $mainMod, mouse_down, workspace, e+1
--- bind = $mainMod, mouse_up, workspace, e-1
---
--- -- Move/resize windows with mainMod + LMB/RMB and dragging
--- bindm = $mainMod, mouse:272, movewindow
--- bindm = $mainMod, mouse:273, resizewindow
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 10%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 10%-"), { locked = true, repeating = true })

@@ -41,12 +41,6 @@ return {
       map('<m-g>', function()
         harpoon:list():select(5)
       end, { desc = 'Select buffer 5 in Harpoon' })
-      map('<C-S-n>', function()
-        harpoon:list():next()
-      end, { desc = 'Select next buffer in Harpoon' })
-      map('<C-S-p>', function()
-        harpoon:list():prev()
-      end, { desc = 'Select previous buffer in Harpoon' })
     end,
   },
 }

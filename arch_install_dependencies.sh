@@ -84,7 +84,7 @@ yay -S zen-browser
 
 
 echo "-------------HYPERLAND---------------"
-sudo pacman -S hyprpaper hyprlock hypridle waybar swaync hyprpicker
+sudo pacman -S hyprpaper hyprlock hypridle hyprpicker
 yay -S hyprshot
 pacman -S xdg-desktop-portal-hyprland
 sudo pacman -S hyprpolkitagent

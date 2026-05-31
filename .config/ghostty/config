@@ -49,7 +49,7 @@ clipboard-write = allow
 
 mouse-hide-while-typing=true
 
-# gtk-single-instance = true
+gtk-single-instance = true
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
 # key=value

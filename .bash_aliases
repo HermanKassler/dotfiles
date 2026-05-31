@@ -79,19 +79,19 @@ show_file_or_dir_preview="if [ -d {} ]; then tree -L 1 -C --dirsfirst {} | head 
 # show_file_or_dir_preview="if [ -d {} ]; then eza --color=always {} | head -200; else bat --color=always --theme gruvbox-dark --line-range :500 {};fi"
 function fd() {
     local dirname
-    dirname=$(fdfind . ~/ -t d -H| fzf --preview "$show_file_or_dir_preview" ) || return
+    dirname=$(fdfind . ~/ -t d -H| fzf --preview "$show_file_or_dir_preview" --style=full) || return
     cd "$dirname"
 }
 
 function fdd() {
     local dirname
-    dirname=$(fdfind . ./ -t d -H| fzf --preview "$show_file_or_dir_preview") || return
+    dirname=$(fdfind . ./ -t d -H| fzf --preview "$show_file_or_dir_preview" --style=full) || return
     cd "$dirname"
 }
 
 function fda() {
     local dirname
-    dirname=$(fdfind . / -t d -H| fzf --preview "$show_file_or_dir_preview") || return
+    dirname=$(fdfind . / -t d -H| fzf --preview "$show_file_or_dir_preview" --style=full) || return
     cd "$dirname"
 }
 
@@ -99,20 +99,20 @@ alias fivm='fvim'
 alias fv='fvim'
 function fvim() {
     local dirname
-    dirname=$(fdfind . ~/ -H| fzf --preview "$show_file_or_dir_preview" -m --preview-window '~3') || return
+    dirname=$(fdfind . ~/ -H| fzf --preview "$show_file_or_dir_preview" -m --preview-window '~3' --style=full) || return
     nvim "$dirname"
 }
 
 function fva() {
     local dirname
-    dirname=$(fdfind . / -H| fzf --preview "$show_file_or_dir_preview" -m --preview-window '~3') || return
+    dirname=$(fdfind . / -H| fzf --preview "$show_file_or_dir_preview" -m --preview-window '~3' --style=full) || return
     nvim "$dirname"
 }
 
 alias fvd='fvimd'
 function fvimd() {
     local dirname
-    dirname=$(fdfind . ./ -H| fzf --preview  "$show_file_or_dir_preview" -m --preview-window '~3') || return
+    dirname=$(fdfind . ./ -H| fzf --preview  "$show_file_or_dir_preview" -m --preview-window '~3' --style=full) || return
     nvim "$dirname"
 }
 
