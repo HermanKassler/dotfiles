@@ -133,15 +133,25 @@ hl.window_rule({
 	rounding = 10,
 })
 
+local function applicationRuleTimer(rule)
+	local appTimer = hl.timer(function()
+		rule:set_enabled(false)
+	end, { timeout = 1000, type = "oneshot" })
+	appTimer:set_enabled(false)
+	return appTimer
+end
+
 hl.on("window.open", function(window)
 	if window.class == "discord" and window.title ~= "Discord Updater" then
-		-- hl.notification.create({ text = "class: " .. window.class .. "   name: " .. window.title, duration = 3000 })
-		suppress_discord:set_enabled(false)
+		hl.notification.create({ text = "class: " .. window.class .. "   name: " .. window.title, duration = 3000 })
+		local discordTimer = applicationRuleTimer(suppress_discord)
+		discordTimer:set_enabled(true)
 	elseif window.class == "zen" then
 		hl.notification.create({
 			text = "class: " .. window.class .. "   name: " .. window.title,
 			duration = 3000,
 		})
-		suppress_zen:set_enabled(false)
+		local zenTimer = applicationRuleTimer(suppress_zen)
+		zenTimer:set_enabled(true)
 	end
 end)

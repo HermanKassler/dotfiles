@@ -2,7 +2,11 @@
 --## LOOK AND FEEL ###
 --####################
 
+print("hej")
 DEFAULT = {
+	debug = {
+		disable_logs = false,
+	},
 	general = {
 		gaps_in = 5,
 		gaps_out = 9,

@@ -4,5 +4,5 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "rose-pine-hyprcursor")
 
 hl.config({ cursor = {
-	no_hardware_cursors = true,
+	no_hardware_cursors = false,
 } })
