@@ -2,6 +2,7 @@ return {
   {
     'mfussenegger/nvim-dap-python',
     event = 'VeryLazy',
+    enabled = false,
     config = function()
       require('dap-python').setup '/usr/bin/python3' -- XXX: Replace this with your preferred Python, if wanted
       -- An example configuration to launch any Python file, via Houdini

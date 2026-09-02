@@ -3,6 +3,7 @@ return {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
     init = function()
+      vim.o.background = 'dark'
       -- Link to info regarding noice highlight groups:
       -- https://github.com/folke/noice.nvim/blob/bf67d70bd7265d075191e7812d8eb42b9791f737/doc/noice.nvim.txt#l799
       local colors = require('gruvbox').palette
@@ -24,6 +25,10 @@ return {
           FoldColumn = { bg = colors.dark0 },
           GruvboxYellowSign = { bg = colors.dark0 },
           GruvboxRedSign = { bg = colors.dark0 },
+          DiffText = { bg = colors.faded_yellow },
+          DiffChange = { bg = colors.dark2 },
+          DiffDelete = { bg = colors.dark_red_soft },
+          DiffAdd = { bg = colors.dark_aqua_hard },
         },
       }
       vim.cmd.colorscheme 'gruvbox'

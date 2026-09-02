@@ -2,12 +2,23 @@ return {
   {
     'sindrets/diffview.nvim',
     event = 'VeryLazy',
+    enabled = false,
     config = function()
       local actions = require 'diffview.actions'
+      vim.opt.fillchars:append { diff = '╱' }
+      -- vim.keymap.set('n', '<leader>hd', '<cmd>DiffviewOpen<cr>', { desc = 'git [d]iff against index' })
+      vim.keymap.set('n', '<leader>hd', function()
+        if next(require('diffview.lib').views) == nil then
+          vim.cmd 'DiffviewOpen'
+        else
+          vim.cmd 'DiffviewClose'
+        end
+      end)
+      vim.keymap.set('n', '<leader>hD', '<cmd>DiffviewOpen HEAD<cr>', { desc = 'git [d]iff against last commit' })
 
       require('diffview').setup {
         diff_binaries = false, -- Show diffs for binaries
-        enhanced_diff_hl = false, -- See |diffview-config-enhanced_diff_hl|
+        enhanced_diff_hl = true, -- See |diffview-config-enhanced_diff_hl|
         git_cmd = { 'git' }, -- The git executable followed by default args.
         hg_cmd = { 'hg' }, -- The hg executable followed by default args.
         use_icons = true, -- Requires nvim-web-devicons

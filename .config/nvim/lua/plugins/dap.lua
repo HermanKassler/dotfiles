@@ -13,7 +13,7 @@ return {
       local dap = require 'dap'
       local ui = require 'dapui'
 
-      require('dapui').setup()
+      ui.setup()
 
       require('nvim-dap-virtual-text').setup()
 
@@ -23,7 +23,7 @@ return {
 
       -- Eval var under cursor
       vim.keymap.set('n', '<space>d?', function()
-        require('dapui').eval(nil, { enter = true })
+        ui.eval(nil, { enter = true })
       end)
 
       vim.keymap.set('n', '<F1>', dap.continue)
@@ -53,28 +53,24 @@ return {
       --   args = { '--interpreter=dap', '--eval-command', 'set print pretty on' },
       -- }
 
-      require('dap-python').setup 'python3'
+      -- require('dap-python').setup 'python3'
 
-      -- dap.configurations.java = {
-      --   {
-      --     type = 'java_language_server',
-      --     request = 'attach',
-      --     name = 'Debug (Attach) - Remote',
-      --     hostName = '127.0.0.1',
-      --     port = 5005,
-      --   },
+      -- dap.adapters.codelldb = {
+      --   type = 'executable',
+      --   command = os.getenv 'HOME' .. '.local/share/nvim/mason/opt/bin/lldb', -- adjust as needed, must be absolute path
+      --   name = 'lldb',
       -- }
-
-      dap.adapters.codelldb = {
-        type = 'executable',
-        command = os.getenv 'HOME' .. '.local/share/nvim/mason/opt/bin/lldb', -- adjust as needed, must be absolute path
-        name = 'lldb',
-      }
-
+      require('mason').setup()
       require('mason-nvim-dap').setup {
         automatic_installation = true,
-        ensure_installed = { 'debugpy', 'codelldb' },
-        handlers = {},
+        ensure_installed = { 'debugpy', 'codelldb', 'java-debug-adapter' },
+        handlers = {
+          function(config)
+            -- all sources with no handler get passed here
+            -- Keep original functionality
+            require('mason-nvim-dap').default_setup(config)
+          end,
+        },
       }
     end,
   },

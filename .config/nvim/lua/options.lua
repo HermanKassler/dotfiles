@@ -1,25 +1,28 @@
 vim.g.have_nerd_font = true
+vim.opt.mouse = 'a'
+vim.o.swapfile = false
 
 -- Sign Column
 vim.opt.signcolumn = 'yes'
 vim.opt.number = true
 vim.opt.relativenumber = true
-
-vim.opt.mouse = 'a'
+vim.opt.cursorline = true
 
 -- Status/command line
 vim.opt.showmode = false -- Disable since it's shown in the status line
 vim.o.cmdheight = 0 --Remove command line to mesh better with noice
 
+-- File details
 vim.opt.autoread = true -- Update buffer if it is changed from another source
+vim.opt.undofile = true
 
+-- Tab behavior
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.breakindent = true
 vim.opt.linebreak = true
-vim.opt.undofile = true
 
 -- Search behaviour
 vim.opt.ignorecase = true
@@ -32,7 +35,6 @@ vim.opt.timeoutlen = 300 -- Displays which-key popup sooner
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.conceallevel = 1
 -- vim.opt.spelllang = 'en,se'
@@ -48,8 +50,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Split behavior
 vim.opt.splitright = true -- Configure how new splits should be opened
 vim.opt.splitbelow = true
+
 -- Open help pages in vertical mode
 vim.api.nvim_create_autocmd('BufWinEnter', {
   group = vim.api.nvim_create_augroup('help_window_right', { clear = true }),
@@ -63,8 +67,6 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
@@ -74,9 +76,9 @@ vim.diagnostic.config {
   virtual_text = true,
 }
 
+-- Folding
 vim.o.foldmethod = 'expr'
--- Default to treesitter folding
-vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Default to treesitter folding
 vim.o.foldlevel = 99
 vim.o.foldtext = ''
 vim.opt.foldcolumn = '0'

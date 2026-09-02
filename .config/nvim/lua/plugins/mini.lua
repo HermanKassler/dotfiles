@@ -45,10 +45,6 @@ return {
         end,
       })
 
-      require('mini.sessions').setup()
-
-      vim.keymap.set('n', '<leader>rrr', '<cmd>lua MiniSessions.restart()<cr>', { desc = 'Restart Neovim' })
-
       -- Simple and easy statusline.
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font

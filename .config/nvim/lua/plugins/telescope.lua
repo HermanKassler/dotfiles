@@ -1,6 +1,6 @@
 return {
 
-  { -- Fuzzy Finder (files, lsp, etc)
+  {
     'nvim-telescope/telescope.nvim',
     event = 'VeryLazy',
     version = '*',
@@ -41,16 +41,10 @@ return {
       --  - Normal mode: ?
       --
       -- This opens a window that shows you all of the keymaps for the current
-      -- Telescope picker. This is really useful to discover what Telescope can
-      -- do as well as how to actually do it!
+      -- Telescope picker.
 
       local lga_actions = require 'telescope-live-grep-args.actions'
-      -- [[ Configure Telescope ]]
-      -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
-        -- You can put your default mappings / updates / etc. in here
-        --  All the info you're looking for is in `:help telescope.setup()`
-        --
         defaults = {
           sorting_strategy = 'ascending',
           layout_config = {
@@ -73,8 +67,7 @@ return {
           },
           live_grep_args = {
             auto_quoting = true, -- enable/disable auto-quoting
-            -- define mappings, e.g.
-            mappings = { -- extend mappings
+            mappings = {
               i = {
                 ['<C-k>'] = lga_actions.quote_prompt(),
                 ['<C-t>'] = lga_actions.quote_prompt { postfix = ' -t ' },

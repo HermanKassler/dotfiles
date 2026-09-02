@@ -4,18 +4,7 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
 
-vim.keymap.set('n', '<leader>w', function()
-  vim.cmd.write()
-  vim.cmd.echo '"Saved Buffer"'
-end, { desc = 'Save buffer' })
-
-vim.keymap.set('n', '<leader>wa', function()
-  vim.cmd.wall()
-  vim.cmd.echo '"Saved All Buffers"'
-end, { desc = 'Save all buffers' })
-
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
-vim.keymap.set('n', '<leader>,', 'A;<Esc>', { desc = 'Add a ; at end of line' })
 vim.keymap.set('v', '<leader>n', ':g/.*/norm ', { desc = 'Start norm command' })
 vim.keymap.set('n', '<leader>mm', '<cmd>make<cr>', { desc = '[M]ake' })
 vim.keymap.set('n', '<s-tab>', '<C-6>', { desc = 'Alternate file' })
@@ -28,7 +17,6 @@ end, { silent = true, desc = 'Go to context' })
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"0p', { desc = 'Paste without replacing buffer' })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>cl', '<cmd>s/\\<./\\u&/g<enter><cmd>nohl<enter>', { desc = 'Title [C]apitalize each word in current [L]ine' })
-vim.keymap.set('n', 'z1', '1z=]s', { desc = 'Select best spelling suggestion' })
 
 -- Add some better navigation between panes
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -40,6 +28,20 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<cr>', { desc = '[C][D] to directory of open file' })
+
+-- QoL
+vim.keymap.set('n', '<leader>,', 'A;<Esc>', { desc = 'Add a ; at end of line' })
+vim.keymap.set('n', 'z1', '1z=]s', { desc = 'Select best spelling suggestion' })
+
+vim.keymap.set('n', '<leader>w', function()
+  vim.cmd.write()
+  vim.cmd.echo '"Saved Buffer"'
+end, { desc = 'Save buffer' })
+
+vim.keymap.set('n', '<leader>wa', function()
+  vim.cmd.wall()
+  vim.cmd.echo '"Saved All Buffers"'
+end, { desc = 'Save all buffers' })
 
 -- QUICK FIX LIST
 vim.keymap.set('n', '<leader>q', function()
