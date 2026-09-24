@@ -59,8 +59,6 @@ sudo pacman -S yazi
 echo "installing croc..."
 sudo pacman -S croc
 
-
-
 echo "installing qrcp..."
 sudo pacman -S qrcp
 
@@ -72,24 +70,21 @@ sudo pacman -S ethersync
 sudo pacman -S teeldear
 sudo pacman -S nwg-displays
 sudo pacman -S rofi
-# sudo pacman -S 
+sudo pacman -S git-delta
 
 echo "--------------APPLICATIONS---------------"
 sudo pacman -S discord
 sudo pacman -S spotify-launcher
 sudo pacman -S vlc
 sudo pacman -S obsidian
-yay -S slack-desktop
-yay -S zen-browser
-
+yay -S slack-desktop zen-browser kanata
 
 echo "-------------HYPERLAND---------------"
 sudo pacman -S hyprpaper hyprlock hypridle hyprpicker
 yay -S hyprshot
 pacman -S xdg-desktop-portal-hyprland
 sudo pacman -S hyprpolkitagent
-sudo pacman -S qt6-wayland
-sudo pacman -S qt5-wayland
+sudo pacman -S qt6-wayland qt5-wayland
 yay -S noctalia-shell
 
 
