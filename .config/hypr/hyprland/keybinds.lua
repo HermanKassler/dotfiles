@@ -7,7 +7,14 @@ hl.bind(mainMod .. " E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " N", hl.dsp.exec_cmd(" /home/tore/.config/nvim-wl-anywhere/nvim-wl-anywhere.sh"))
 hl.bind(mainMod .. "D", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. "SHIFT + D", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind(mainMod .. "SHIFT + D", function()
+	print(#hl.get_monitors() == 1)
+	print(hl.get_monitors()[1])
+	for k, v in pairs(hl.get_monitors()) do
+		print(k .. ", " .. v.name)
+	end
+end)
+
 hl.bind(mainMod .. "SHIFT + F", hl.dsp.exec_cmd(" ulauncher-toggle"))
 -- hl.bind(mainMod .."P + pseudohl.dsp.exec_cmd(" "))-- dwindle
 hl.bind(mainMod .. "S", hl.dsp.layout("togglesplit"))
@@ -15,21 +22,24 @@ hl.bind(mainMod .. "F", hl.dsp.window.fullscreen({ mode = "maximized", action = 
 hl.bind(mainMod .. "escape", hl.dsp.exec_cmd(" ~/.config/rofi/powermenu/type-5/powermenu.sh")) -- open power menu
 
 -- Noctalia
-local ipc = "qs -c noctalia-shell ipc call"
+local noctalia = "noctalia msg "
 
-hl.bind(mainMod .. "SPACE", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
-hl.bind(mainMod .. "SHIFT + B", hl.dsp.exec_cmd(ipc .. " bar toggle"))
-hl.bind(mainMod .. "period", hl.dsp.exec_cmd(ipc .. " launcher emoji"))
-hl.bind(mainMod .. "SHIFT + C", hl.dsp.exec_cmd(ipc .. " controlCenter toggle"))
-hl.bind(mainMod .. "SHIFT + W", hl.dsp.exec_cmd(ipc .. " wallpaper toggle"))
-hl.bind(mainMod .. "comma", hl.dsp.exec_cmd(ipc .. " settings toggle"))
+-- hl.bind(mainMod .. "SPACE", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
+hl.bind(mainMod .. "SHIFT + B", hl.dsp.exec_cmd(noctalia .. "bar-toggle"))
+-- hl.bind(mainMod .. "period", hl.dsp.exec_cmd(noctalia .. "panel-toggle emoji"))
+hl.bind(mainMod .. "SHIFT + C", hl.dsp.exec_cmd(noctalia .. "panel-toggle control-center"))
+hl.bind(mainMod .. "SHIFT + W", hl.dsp.exec_cmd(noctalia .. "panel-toggle Wallpaper"))
+hl.bind(mainMod .. "comma", hl.dsp.exec_cmd(noctalia .. " settings-toggle"))
 
 hl.env("HYPRSHOT_DIR", "Pictures/Screenshots/")
-hl.bind(mainMod .. "SHIFT + S", hl.dsp.exec_cmd("hyprshot --freze -m region"))
+hl.bind(mainMod .. "SHIFT + S", hl.dsp.exec_cmd("hyprshot --freeze -m region"))
 
 hl.bind(mainMod .. "C", hl.dsp.exec_cmd("gnome-calculator"))
 hl.bind(mainMod .. "SHIFT + P", hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind(mainMod .. "V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+--
+-- hl.bind(mainMod .. "V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-paste"))
+hl.bind(mainMod .. "V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
+hl.bind(mainMod .. "period", hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"))
 
 hl.bind(mainMod .. "SHIFT + G ", function()
 	local currentGaps = hl.get_config("general.gaps_out").top
@@ -71,12 +81,13 @@ end
 
 hl.bind(mainMod .. "0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mainMod .. "SHIFT + 0", hl.dsp.window.move({ workspace = 10, follow = false }))
+
 for i = 1, 9 do
 	move_to_workspace(i)
 	focus_workspace(i)
 end
 
--- -- Example special workspace (scratchpad)
+-- Example special workspace (scratchpad)
 hl.bind(mainMod .. "A", hl.dsp.workspace.toggle_special())
 hl.bind(mainMod .. "SHIFT + A", hl.dsp.window.move({ workspace = "special", follow = false }))
 

@@ -1,3 +1,14 @@
+-- bind workspaces to monitor if there are two
+if #hl.get_monitors() == 2 then
+	for i = 5, 10 do
+		hl.workspace_rule({ workspace = tostring(i), monitor = hl.get_monitors()[2].name })
+	end
+	-- else
+	-- 	for i = 5, 10 do
+	-- 		hl.workspace_rule({ workspace = tostring(i), monitor = hl.get_monitors()[1].name })
+	-- 	end
+end
+
 hl.window_rule({
 	name = "calculator",
 	float = true,
@@ -108,7 +119,39 @@ hl.window_rule({
 	no_blur = true,
 	no_shadow = true,
 })
+--
+-- hl.layer_rule({
+-- 	name = "noctalia",
+-- 	match = { namespace = "noctalia-bar.*" },
+-- 	dim_around = false,
+-- 	blur = false,
+-- })
+-- hl.layer_rule({
+-- 	match = { namespace = "^noctalia-bar-default$" },
+-- 	ignore_alpha = 0.5,
+-- })
 
+hl.layer_rule({
+	name = "noctalia",
+	match = {
+		namespace = "^noctalia-(notification|dock|panel|attached-panel|osd|window-switcher)$",
+	},
+	no_anim = true,
+	ignore_alpha = 0.5,
+	blur = true,
+	blur_popups = true,
+})
+
+hl.layer_rule({
+	name = "noctalia",
+	match = {
+		namespace = "^noctalia-bar-.+$",
+	},
+	no_anim = true,
+	ignore_alpha = 0.5,
+	blur = false,
+	blur_popups = true,
+})
 hl.window_rule({
 	name = "Ulauncher",
 	match = { class = "Ulauncher", title = "^(Ulauncher - Application Launcher)*" },
@@ -143,14 +186,14 @@ end
 
 hl.on("window.open", function(window)
 	if window.class == "discord" and window.title ~= "Discord Updater" then
-		hl.notification.create({ text = "class: " .. window.class .. "   name: " .. window.title, duration = 3000 })
+		-- hl.notification.create({ text = "class: " .. window.class .. "   name: " .. window.title, duration = 3000 })
 		local discordTimer = applicationRuleTimer(suppress_discord)
 		discordTimer:set_enabled(true)
 	elseif window.class == "zen" then
-		hl.notification.create({
-			text = "class: " .. window.class .. "   name: " .. window.title,
-			duration = 3000,
-		})
+		-- hl.notification.create({
+		-- 	text = "class: " .. window.class .. "   name: " .. window.title,
+		-- 	duration = 3000,
+		-- })
 		local zenTimer = applicationRuleTimer(suppress_zen)
 		zenTimer:set_enabled(true)
 	end

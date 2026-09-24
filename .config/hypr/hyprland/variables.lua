@@ -19,4 +19,5 @@ terminal = "ghostty --gtk-single-instance=true"
 fileManager = "nemo"
 menu = "vicinae toggle"
 -- menu = "rofi -show drun"
+--
 browser = "zen-browser"

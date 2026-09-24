@@ -1,5 +1,6 @@
 hl.on("hyprland.start", function()
-	hl.exec_cmd("qs -c noctalia-shell")
+	-- hl.exec_cmd("/usr/bin/tmux new-session -d")
+	hl.exec_cmd("noctalia")
 	hl.exec_cmd(terminal) -- [workspace 1 silent]
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd(browser, { workspace = "2 silent" }) -- [workspace 2 silent]
@@ -9,5 +10,5 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Stores only image data
 	hl.exec_cmd("wl-paste --type text --watch cliphist store") -- Stores only text data
 	hl.exec_cmd("vicinae server")
-	hl.exec_cmd("syncthing")
+	-- hl.exec_cmd("syncthing")
 end)

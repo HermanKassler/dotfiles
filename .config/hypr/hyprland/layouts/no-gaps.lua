@@ -24,4 +24,5 @@ NO_GAPS = {
 		},
 	},
 }
+
 hl.config(NO_GAPS)
