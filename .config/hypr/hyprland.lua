@@ -1,7 +1,9 @@
 require("hyprland.variables")
+require("hyprland.cursor")
 require("monitors")
 require("hyprland.autostart")
 require("hyprland.layouts.default")
+
 require("hyprland.animations")
 require("hyprland.input")
 require("hyprland.keybinds")
