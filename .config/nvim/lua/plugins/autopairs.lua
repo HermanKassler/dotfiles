@@ -1,6 +1,7 @@
 -- autopairs
 -- https://github.com/windwp/nvim-autopairs
 
+-- // TODO: replace with mini.pairs
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',

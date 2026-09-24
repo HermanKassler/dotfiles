@@ -7,22 +7,20 @@ vim.keymap.set({ 'n', 'v' }, 'ö', ':', { desc = 'Open command' })
 vim.keymap.set('i', '<M-BS>', '<c-w>', { desc = 'Delete whole word backwards' })
 vim.keymap.set('v', '<leader>n', ':g/.*/norm ', { desc = 'Start norm command' })
 vim.keymap.set('n', '<leader>mm', '<cmd>make<cr>', { desc = '[M]ake' })
-vim.keymap.set('n', '<s-tab>', '<C-6>', { desc = 'Alternate file' })
 vim.keymap.set('n', 'g_', 'g^', { desc = 'Go to start of virtual line' })
-
-vim.keymap.set('n', '[c', function()
-  require('treesitter-context').go_to_context(vim.v.count1)
-end, { silent = true, desc = 'Go to context' })
-
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"0p', { desc = 'Paste without replacing buffer' })
-
 vim.keymap.set({ 'n', 'v' }, '<leader>cl', '<cmd>s/\\<./\\u&/g<enter><cmd>nohl<enter>', { desc = 'Title [C]apitalize each word in current [L]ine' })
 
--- Add some better navigation between panes
+-- Navigation
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<s-tab>', '<C-6>', { desc = 'Alternate file' })
+
+vim.keymap.set('n', '[c', function()
+  require('treesitter-context').go_to_context(vim.v.count1)
+end, { silent = true, desc = 'Go to context' })
 
 -- Clear highlights on search when pressing <Esc> in normal modf-  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -42,6 +40,12 @@ vim.keymap.set('n', '<leader>wa', function()
   vim.cmd.wall()
   vim.cmd.echo '"Saved All Buffers"'
 end, { desc = 'Save all buffers' })
+
+vim.keymap.set('n', '<leader>cm', function()
+  vim.cmd.set 'langmap=qq,ww,fe,pr,bt,jy,lu,ui,yo,öp,åå,aa,rs,sd,tf,gg,mh,nj,ek,il,oö,ää,zz,xx,cc,dv,vb,kn,hm'
+end, { desc = 'Change langmap to colemak' })
+
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- QUICK FIX LIST
 vim.keymap.set('n', '<leader>q', function()
@@ -66,11 +70,3 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = 'Set [D]iagnostic [Q]uickfix list from buffer' })
-
-vim.keymap.set('n', '<leader>cm', function()
-  vim.cmd.set 'langmap=qq,ww,fe,pr,bt,jy,lu,ui,yo,öp,åå,aa,rs,sd,tf,gg,mh,nj,ek,il,oö,ää,zz,xx,cc,dv,vb,kn,hm'
-end, { desc = 'Change langmap to colemak' })
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })

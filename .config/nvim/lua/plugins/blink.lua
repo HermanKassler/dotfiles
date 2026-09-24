@@ -1,16 +1,13 @@
 return {
-  { -- Autocompletion
+  {
     'saghen/blink.cmp',
-    -- enabled = false,
     event = 'InsertEnter',
     version = '1.*',
     dependencies = {
-      -- Snippet Engine
       {
         'L3MON4D3/LuaSnip',
         version = '2.*',
         build = (function()
-          -- Build Step is needed for regex support in snippets.
           -- This step is not supported in many windows environments.
           -- Remove the below condition to re-enable on windows.
           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
@@ -43,11 +40,6 @@ return {
         --    This will auto-import if your LSP supports it.
         --    This will expand snippets if the LSP sent a snippet.
         -- 'none' for no mappings
-        --
-        -- For an understanding of why the 'default' preset is recommended,
-        -- you will need to read `:help ins-completion`
-        --
-        -- No, but seriously. Please read `:help ins-completion`, it is really good!
         --
         -- All presets have the following mappings:
         -- <tab>/<s-tab>: move to right/left of your snippet expansion
@@ -91,8 +83,6 @@ return {
       },
 
       appearance = {
-        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono',
       },
 
@@ -119,7 +109,6 @@ return {
             module = 'blink-cmp-words.dictionary',
             -- All available options
             opts = {
-              -- The number of characters required to trigger completion.
               -- Set this higher if completion is slow, 3 is default.
               dictionary_search_threshold = 3,
               score_offset = -100,
@@ -151,14 +140,6 @@ return {
       },
 
       snippets = { preset = 'luasnip' },
-
-      -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
-      -- which automatically downloads a prebuilt binary when enabled.
-      --
-      -- By default, we use the Lua implementation instead, but you may enable
-      -- the rust implementation via `'prefer_rust_with_warning'`
-      --
-      -- See :h blink-cmp-config-fuzzy for more information
       fuzzy = { implementation = 'prefer_rust' },
 
       -- Shows a signature help window while you type arguments for a function

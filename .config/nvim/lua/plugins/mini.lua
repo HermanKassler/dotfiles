@@ -1,39 +1,24 @@
 return {
-  { -- Collection of various small independent plugins/modules
+  {
     'echasnovski/mini.nvim',
     event = 'VimEnter',
     config = function()
-      -- Create an autocommand to
       vim.api.nvim_create_autocmd('UIEnter', {
         once = true,
         callback = function()
-          -- Better Around/Inside textobjects
-          --
-          -- Examples:
-          --  - va)  - [V]isually select [A]round [)]paren
-          --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-          --  - ci'  - [C]hange [I]nside [']quote
           require('mini.ai').setup { n_lines = 500 }
-
-          -- Add/delete/replace surroundings (brackets, quotes, etc.)
-          --
-          -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-          -- - sd'   - [S]urround [D]elete [']quotes
-          -- - sr)'  - [S]urround [R]eplace [)] [']
           require('mini.surround').setup()
+          require('mini.move').setup()
           require('mini.operators').setup {
             exchange = {
               prefix = 'ge',
             },
             replace = {
               prefix = 'gp',
-
               -- Whether to reindent new text to match previous indent
               reindent_linewise = true,
             },
           }
-          require('mini.move').setup()
-
           require('mini.align').setup {
             modifiers = {
               -- Use 'T' modifier to remove both whitespace and indent
@@ -45,11 +30,10 @@ return {
         end,
       })
 
-      -- Simple and easy statusline.
       local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
       statusline.setup { use_icons = vim.g.have_nerd_font }
 
+      -- Function to show macro recording status
       local function macro_status()
         local reg = vim.fn.reg_recording()
         if reg == '' then
@@ -58,7 +42,7 @@ return {
           return 'REC @' .. reg .. ' '
         end
       end
-      --
+
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
@@ -66,7 +50,6 @@ return {
       statusline.section_location = function()
         return macro_status() .. '%2l:%-2v'
       end
-      -- Function to show macro recording status
     end,
   },
 }

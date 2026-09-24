@@ -51,10 +51,6 @@ return {
         dashboard.button('q', '󰿅  Quit', '<cmd>qa<CR>'),
       }
 
-      -- local function footer()
-      -- 	return "Footer Text"
-      -- end
-
       vim.api.nvim_create_autocmd('User', {
         pattern = 'LazyVimStarted',
         desc = 'Add Alpha dashboard footer',
