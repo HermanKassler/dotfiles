@@ -1,0 +1,185 @@
+
+;;(deflocalkeys-win
+  ;;§   220
+  ;;+   187
+  ;;¨   186
+  ;;ö   192
+  ;;ä   222
+  ;;'   191
+  ;;<   226
+  ;;,   188
+  ;;.   190
+  ;;-   189
+;;)
+
+(deflocalkeys-linux
+  §   41
+  +   12
+  ´   13 ;; Acute accent. Opposite to the grave accent (grv).
+  å   26
+  ¨   27
+  ö   39
+  ä   40
+  '   43
+  <   86
+  ,   51
+  .   52
+  -   53
+)
+
+
+(defvar 
+    tt 240
+    ht 240
+)
+
+
+(defalias
+    holdnav (layer-while-held nav)
+    ;; holdsym (layer-while-held symbols)
+    holdsym (tap-hold-release $tt $ht bspc (layer-while-held symbols))
+    holdnum (layer-while-held num)
+    toggno (layer-switch nomods)
+    toggdef (layer-switch default)
+    toggbot  (layer-switch bottom_mod)
+    spacenum (tap-hold-release $tt $ht spc (layer-while-held num))
+    holdmod (tap-hold-release $tt $ht  § (layer-while-held nomods))
+    ctlesc (tap-hold-release $tt $ht esc lctl)
+    d (tap-hold-release $tt $ht d lsft ) ;; tap d  ;; hold shift
+    c (tap-hold-release $tt $ht c lsft ) 
+    k (tap-hold-release $tt $ht k rsft );; tap k  ;; hold shift
+    , (tap-hold-release $tt $ht , rsft )
+    f (tap-hold-release $tt $ht f lctl ) 
+    v (tap-hold-release $tt $ht v lctl ) 
+    j (tap-hold-release $tt $ht j rctl ) 
+    m (tap-hold-release $tt $ht m rctl ) 
+    s (tap-hold-release $tt $ht s lalt )
+    x (tap-hold-release $tt $ht x lalt )
+    . (tap-hold-release $tt $ht . lalt )
+    l (tap-hold-release $tt $ht l lalt )
+    a (tap-hold-release $tt $ht a lmet )
+    z (tap-hold-release $tt $ht z lmet )
+    ö (tap-hold-release $tt $ht ö rmet )
+    - (tap-hold-release $tt $ht - rmet )
+    excl    S-1
+    quot    S-2
+    at      RA-2
+    hash    S-3
+    usd     RA-4
+    perc    S-5
+    great   <
+    less    S-<
+    pipe    RA-<
+    lpar    S-8
+    rpar    S-9
+    lbrack RA-8   
+    rbrack RA-9
+    lbrace  RA-7
+    rbrace  RA-0
+    equal   S-0
+    amp     S-6
+    undsc   S--
+    slsh    S-7
+    bslsh   RA-+
+    ques    S-+
+    tild    RA-¨
+    star    S-'
+    undr    S--
+    scrlup  (mwheel-up 30 120)
+    scrld   (mwheel-down 30 120)
+)
+
+(defchords homechords 16
+    (s           )  @s
+    (  d         )  @d
+    (    f       )  @f
+    (      j     )  @j
+    (        k   )  @k
+    (          l )  @l
+    (s d         )  bspc
+    (        k l )  del
+    (      j k   )  enter
+)
+
+(defalias qwty (layer-switch default))
+(defalias cole (layer-switch colemak))
+
+(defalias
+ chs (chord homechords s)
+    chd (chord homechords d)
+    chf (chord homechords f)
+    chj (chord homechords j)
+    chk (chord homechords k)
+    chl (chord homechords l)
+)
+
+(defcfg
+    windows-altgr cancel-lctl-press
+)
+
+
+(defsrc ;; Swedish ISO105
+  §    1    2    3    4    5    6    7    8    9    0    +    ´    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    å    ¨
+  caps a    s    d    f    g    h    j    k    l    ö    ä    '    enter
+  lsft <    z    x    c    v    b    n    m    ,    .    -         rsft
+  lctl lmet lalt                spc                 ralt prtsc menu rctl
+)
+
+;; Empty layer that matches the Swedish layout
+(deflayer default
+  @holdmod    _     _      _        _          _      _     _      _      _     _   _   _   _
+      _       _     _      _        _          _      _     _      _      _     _   _   _
+   @ctlesc   @a   @chs   @chd     @chf         _      _   @chj   @chk   @chl   @ö   _   _   _
+      _       _     _      _        _          _      _     _      _      _     _   _   _
+      _       _            @holdnav    @spacenum   @holdsym      _     _   _ 
+)
+
+(deflayer bottom_mod
+  @toggdef    _     _      _        _          _      _     _      _      _     _   _   _   _
+      _       _     _      _        _          _      _     _      _      _     _   _   _
+   @ctlesc    _     _   _     _         _      _   _   _   _   _   _   _   _
+      _       _     @z      @x        @c          @v      _     _      @m      @,     @.   @-   _
+      _       _            @holdnav    @spacenum   @holdsym      _     _   _ 
+)
+
+(deflayer symbols
+  @cole   _     _     _     _    _     _     _       _       _       _      _     _   _
+  _   _     _     _     _    _   @amp  @equal @lbrack @rbrack  @tild    _     _
+  _ @excl @quot @hash @usd @perc   +  @lbrace  @lpar   @rpar  @rbrace @ques @star _
+  _   _   @pipe  @at    <  @less   _     -     @undr   @slsh   @bslsh   _     _
+  _   _     _                      _                         _    _     _     _
+)
+
+(deflayer colemak
+    @qwty     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _     q     w     f     p     b     j     l     u     y     ö     å     _
+    @ctlesc     a     r     s     t     g     m     n     e     i     o     ä     _     _
+    _     _     z     x     c     d     v     k     h     _     _     _     _
+      _       _     @holdnum      _    @holdsym   @holdnav   _     _
+)
+
+(deflayer nav
+        @toggbot     _        _        _        _        _     _        _        _      _         _       _     _     _
+        _     _        7        8        9        _     _        @scrld        @scrlup     _         _       _     _
+        _     lmet     lalt     lsft     lctl     _     left     down     up     right     _       _     _     _
+        _     _        _        1        2        3     _        home     @scrld      @scrlup         end     _     _
+        _     _        _        _        _        _     _        _
+)
+
+(deflayer num
+        @toggno     _        _        _        _        _     _     _     _     _     _     _     _     _
+        _     _        7        8        9        _     _     7     8     9     _     _     _
+        _     lmet     lalt     lsft     lctl     _     _     4     5     6     0     _     _     _
+        _     _        _        1        2        3     _     _     1     2     3     _     _
+  _    _    _                   _                   _    _    _    _
+)
+
+(deflayer nomods
+      @toggdef      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _      _     _     _     _     _     _     _     _     _     _     _     _
+    lctl     a     s     d     f     _     _     j     k     l     ö     _     _     _
+      _      _     _     _     _     _     _     _     _     _     _     _     _
+      _      _     _                   _                   _    _    _    _
+)
+
