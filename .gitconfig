@@ -1,0 +1,17 @@
+[user]
+	email = tore.gaani@gmail.com
+	name = HermanKassler
+[core]
+	editor = nvim
+	pager = delta
+[init]
+	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[include]
+    path = ~/.config/delta/themes.gitconfig
+[delta]
+    features = gruvmax-fang
+	side-by-side = false
+[merge]
+	conflictStyle = zdiff3
